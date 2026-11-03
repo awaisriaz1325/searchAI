@@ -3,7 +3,7 @@ import type postgres from 'postgres';
 import { matchesFilters } from '@searchai/core';
 import { PLACES, generateListings } from '@searchai/datagen';
 import { buildVectorIndexes, ingestListings } from '@searchai/db';
-import { createHashEmbedder } from '@searchai/ml';
+import { createHashEmbedder, createLlmParser } from '@searchai/ml';
 import { freshDb } from '../../db/test/helpers.ts';
 import { createSearch, DEFAULT_CONFIG, loadPrices, parseQuery, type SearchFn } from '../src/index.ts';
 
@@ -42,6 +42,16 @@ describe('search', () => {
     expect(res.results.length).toBeGreaterThan(0);
     for (const r of res.results) expect(matchesFilters(f, r)).toBe(true);
     expect(res.violations).toBe(0);
+  });
+
+  it('falls back to parser on timeout and still answers within 1,200 ms', async () => {
+    const slow = createLlmParser({ model: 'slow', generate: () => new Promise((r) => setTimeout(() => r({ text: '{}', tokensIn: 0, tokensOut: 0, ms: 2000 }), 2000)) }, 800);
+    const s2 = createSearch({ sql, embedder: createHashEmbedder(), prices: await loadPrices(), config: DEFAULT_CONFIG, llmParser: slow });
+    const t = performance.now();
+    const res = await s2({ q: 'diesel near Atlantis', portal: 'cars' });
+    expect(performance.now() - t).toBeLessThan(1_200);
+    expect(res.degraded).toContain('llm_parse_timeout');
+    expect(res.results.length).toBeGreaterThan(0);
   });
 
   it('returns empty with reason when filters match nothing', async () => {

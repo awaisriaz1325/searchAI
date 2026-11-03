@@ -17,7 +17,8 @@
     "test:integration": "vitest run --project integration",
     "test:model": "vitest run --project model",
     "format": "prettier --write .",
-    "ingest": "tsx packages/db/src/cli-ingest.ts"
+    "ingest": "tsx packages/db/src/cli-ingest.ts",
+    "extract": "tsx packages/eval/src/cli-extract.ts"
   },
   "devDependencies": {
     "@types/node": "22.15.30",

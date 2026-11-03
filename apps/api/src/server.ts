@@ -24,12 +24,7 @@ const deps: SearchDeps = {
   cache: env.REDIS_URL ? createRedisCache(env.REDIS_URL) : createMemoryCache(),
   onResponse: (r) => metrics.record(r),
 };
-const optional = ml as unknown as Record<string, (...a: unknown[]) => Promise<unknown>>;
-if (env.LLM_PARSE === '1' && optional.createQwenLlm && optional.createLlmParser) {
-  const llm = await optional.createQwenLlm();
-  deps.llmParser = (await optional.createLlmParser(llm, DEFAULT_CONFIG.llmParseTimeoutMs)) as SearchDeps['llmParser'];
-}
-if (env.RERANK === '1' && optional.createCrossEncoder) deps.reranker = (await optional.createCrossEncoder()) as SearchDeps['reranker'];
+if (env.LLM_PARSE === '1') deps.llmParser = ml.createLlmParser(await ml.createQwenLlm(), DEFAULT_CONFIG.llmParseTimeoutMs);
 
 const app = buildApp({ search: createSearch(deps), metrics, sql });
 const port = Number(env.PORT ?? 8787);
