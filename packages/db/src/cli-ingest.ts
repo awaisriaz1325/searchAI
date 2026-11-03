@@ -6,9 +6,8 @@
 import { createReadStream } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { parseArgs } from 'node:util';
-import postgres from 'postgres';
 import { PLACES, type GeneratedListing } from '@searchai/datagen';
-import { buildVectorIndexes, createSql, ingestListings, migrate, type EmbedderLike } from './index.ts';
+import { buildVectorIndexes, createSql, ingestListings, recreateDatabase, type EmbedderLike } from './index.ts';
 
 const { values } = parseArgs({
   options: {
@@ -19,17 +18,12 @@ const { values } = parseArgs({
   },
 });
 const ADMIN = process.env.DATABASE_URL ?? 'postgres://postgres:postgres@localhost:5433/searchai';
-const url = ADMIN.replace(/\/[^/]+$/, `/${values.db}`);
 
 async function* readJsonl<T>(path: string): AsyncGenerator<T> {
   for await (const line of createInterface({ input: createReadStream(path) })) if (line.trim()) yield JSON.parse(line) as T;
 }
 
-const admin = postgres(ADMIN, { max: 1, onnotice: () => {} });
-await admin.unsafe(`DROP DATABASE IF EXISTS ${values.db} WITH (FORCE)`);
-await admin.unsafe(`CREATE DATABASE ${values.db}`);
-await admin.end();
-await migrate(url);
+const url = await recreateDatabase(ADMIN, values.db!);
 const sql = createSql(url);
 
 let embedder: EmbedderLike | undefined;

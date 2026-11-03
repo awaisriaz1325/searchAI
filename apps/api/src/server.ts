@@ -2,6 +2,7 @@
  * Environment:
  *   DATABASE_URL  postgres://postgres:postgres@localhost:5433/searchai_1k
  *   REDIS_URL     redis://localhost:6380 (unset: in-memory cache)
+ *   CACHE=off     no result/embedding cache (cold-path benchmarks)
  *   EMBEDDER      e5 (default) | hash
  *   LLM_PARSE=1   enable the local LLM query-parse fallback
  *   RERANK=1      enable the local cross-encoder
@@ -21,7 +22,7 @@ const deps: SearchDeps = {
   embedder: env.EMBEDDER === 'hash' ? ml.createHashEmbedder() : await ml.createE5Embedder(),
   prices: await loadPrices(),
   config: DEFAULT_CONFIG,
-  cache: env.REDIS_URL ? createRedisCache(env.REDIS_URL) : createMemoryCache(),
+  cache: env.CACHE === 'off' ? undefined : env.REDIS_URL ? createRedisCache(env.REDIS_URL) : createMemoryCache(),
   onResponse: (r) => metrics.record(r),
 };
 if (env.RERANK === '1') deps.reranker = await ml.createCrossEncoder();

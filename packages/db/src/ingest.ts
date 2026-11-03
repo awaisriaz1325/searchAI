@@ -24,7 +24,7 @@ export interface IngestOptions {
 }
 
 const esc = (v: string) => v.replace(/\\/g, '\\\\').replace(/\t/g, '\\t').replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-export const vectorLiteral = (v: ArrayLike<number>) => `[${Array.from(v, (x) => +x.toFixed(6)).join(',')}]`;
+export const vectorLiteral = (v: ArrayLike<number>) => `[${Array.from(v, (x) => +x.toFixed(5)).join(',')}]`;
 export const passageText = (l: { title: string; description: string }) => `${l.title}\n${l.description}`;
 
 async function copy(sql: Sql, statement: string, lines: string[]) {

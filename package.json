@@ -18,7 +18,13 @@
     "test:model": "vitest run --project model",
     "format": "prettier --write .",
     "ingest": "tsx packages/db/src/cli-ingest.ts",
-    "extract": "tsx packages/eval/src/cli-extract.ts"
+    "extract": "tsx packages/eval/src/cli-extract.ts",
+    "eval": "tsx packages/eval/src/cli-eval.ts",
+    "bench:load": "tsx bench/src/load-2m.ts",
+    "bench:strategies": "tsx bench/src/strategies.ts",
+    "bench:jsonb": "tsx bench/src/jsonb-vs-column.ts",
+    "bench:load-test": "tsx bench/src/loadtest.ts",
+    "cost": "tsx bench/src/cost-report.ts"
   },
   "devDependencies": {
     "@types/node": "22.15.30",

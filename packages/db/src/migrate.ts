@@ -31,3 +31,18 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const url = process.env.DATABASE_URL ?? 'postgres://postgres:postgres@localhost:5433/searchai';
   console.log('applied:', await migrate(url));
 }
+
+/** Drops and recreates database `name` on the server behind `adminUrl`, migrates it, returns its URL. */
+export async function recreateDatabase(adminUrl: string, name: string): Promise<string> {
+  if (!/^[a-z_][a-z0-9_]*$/.test(name)) throw new Error(`invalid database name: ${name}`);
+  const admin = createSql(adminUrl, { max: 1 });
+  try {
+    await admin.unsafe(`DROP DATABASE IF EXISTS ${name} WITH (FORCE)`);
+    await admin.unsafe(`CREATE DATABASE ${name}`);
+  } finally {
+    await admin.end();
+  }
+  const url = adminUrl.replace(/\/[^/]+$/, `/${name}`);
+  await migrate(url);
+  return url;
+}

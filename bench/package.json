@@ -1,0 +1,13 @@
+{
+  "name": "@searchai/bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@searchai/core": "0.1.0",
+    "@searchai/datagen": "0.1.0",
+    "@searchai/db": "0.1.0",
+    "@searchai/ml": "0.1.0",
+    "@searchai/search": "0.1.0"
+  }
+}
