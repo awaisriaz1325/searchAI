@@ -1,0 +1,4815 @@
+[
+ {
+  "id": "cars-01",
+  "portal": "cars",
+  "lang": "de",
+  "text": "kompaktwagen bis 3k €",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "hatchback"
+    }
+   },
+   "priceMaxMinor": 300000
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-02",
+  "portal": "cars",
+  "lang": "en",
+  "text": "near Dusseldorf, under €3,000",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {},
+   "geo": {
+    "lat": 51.227,
+    "lon": 6.773,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 300000
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-03",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "diesel moins de 10k €",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "diesel"
+    }
+   },
+   "priceMaxMinor": 1000000
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-04",
+  "portal": "cars",
+  "lang": "es",
+  "text": "compacto gasolina cerca de Colonia, menos de 140.000 km",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 140000
+    },
+    "body": {
+     "eq": "hatchback"
+    },
+    "fuel": {
+     "eq": "petrol"
+    }
+   },
+   "geo": {
+    "lat": 50.938,
+    "lon": 6.96,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-05",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "dostawczy w okolicy Kolonia, przebieg do 40 000 km",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 40000
+    },
+    "body": {
+     "eq": "van"
+    }
+   },
+   "geo": {
+    "lat": 50.938,
+    "lon": 6.96,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-06",
+  "portal": "cars",
+  "lang": "de",
+  "text": "kompaktwagen unter 20.000 km",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "hatchback"
+    },
+    "mileage_km": {
+     "max": 20000
+    }
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-07",
+  "portal": "cars",
+  "lang": "en",
+  "text": "hatchback hybrid under €5,000",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "hatchback"
+    },
+    "fuel": {
+     "eq": "hybrid"
+    }
+   },
+   "priceMaxMinor": 500000
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-08",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "essence près de Gdańsk, moins de 11 000 €, moins de 240 000 km",
+  "category": "filter",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "petrol"
+    },
+    "mileage_km": {
+     "max": 240000
+    }
+   },
+   "geo": {
+    "lat": 54.352,
+    "lon": 18.646,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 1100000
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-09",
+  "portal": "cars",
+  "lang": "es",
+  "text": "sin embrague menos de 100.000 km",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 100000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "easy",
+    "field": "gearbox",
+    "values": [
+     "automatic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-10",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "do przeprowadzek dostawczy",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "van"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "cargo",
+    "field": "body",
+    "values": [
+     "van",
+     "pickup"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-11",
+  "portal": "cars",
+  "lang": "de",
+  "text": "umweltfreundlich unter 120.000 km, bis 5.000 €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 120000
+    }
+   },
+   "priceMaxMinor": 500000
+  },
+  "intent": [
+   {
+    "id": "green",
+    "field": "fuel",
+    "values": [
+     "hybrid",
+     "electric"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-12",
+  "portal": "cars",
+  "lang": "en",
+  "text": "family car near Munich, under 40,000 km",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 40000
+    }
+   },
+   "geo": {
+    "lat": 48.137,
+    "lon": 11.575,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-13",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "sans embrayage citadine près de Munich",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "hatchback"
+    }
+   },
+   "geo": {
+    "lat": 48.137,
+    "lon": 11.575,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "easy",
+    "field": "gearbox",
+    "values": [
+     "automatic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-14",
+  "portal": "cars",
+  "lang": "es",
+  "text": "sin embrague menos de 310.000 km",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 310000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "easy",
+    "field": "gearbox",
+    "values": [
+     "automatic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-15",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "sportowy przebieg do 200 000 km",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 200000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "sporty",
+    "field": "body",
+    "values": [
+     "coupe",
+     "convertible"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-16",
+  "portal": "cars",
+  "lang": "de",
+  "text": "familienauto bei Wien, unter 190.000 km",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 190000
+    }
+   },
+   "geo": {
+    "lat": 48.208,
+    "lon": 16.373,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-17",
+  "portal": "cars",
+  "lang": "en",
+  "text": "eco friendly hatchback",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "hatchback"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "green",
+    "field": "fuel",
+    "values": [
+     "hybrid",
+     "electric"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-18",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "plaisir de conduite moins de 200 000 km",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 200000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "sporty",
+    "field": "body",
+    "values": [
+     "coupe",
+     "convertible"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-19",
+  "portal": "cars",
+  "lang": "es",
+  "text": "para mi negocio furgón en Lodz",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "van"
+    }
+   },
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "cargo",
+    "field": "body",
+    "values": [
+     "van",
+     "pickup"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-20",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "niska emisja hybryda",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "hybrid"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "green",
+    "field": "fuel",
+    "values": [
+     "hybrid",
+     "electric"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-21",
+  "portal": "cars",
+  "lang": "de",
+  "text": "platz für kinder und gepäck unter 10.000 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "cars",
+   "facts": {},
+   "priceMaxMinor": 1000000
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-22",
+  "portal": "cars",
+  "lang": "en",
+  "text": "room for the kids and luggage around Hanover, below €10,000",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "cars",
+   "facts": {},
+   "priceMaxMinor": 1000000,
+   "geo": {
+    "lat": 52.375,
+    "lon": 9.732,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-23",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "voiture familiale près de Hanovre, moins de 210 000 km",
+  "category": "cross_language",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 210000
+    }
+   },
+   "geo": {
+    "lat": 52.375,
+    "lon": 9.732,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-24",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "auto rodzinne benzyna w okolicy Lyon",
+  "category": "cross_language",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "petrol"
+    }
+   },
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-25",
+  "portal": "cars",
+  "lang": "de",
+  "text": "umweltfreundlich bei Bilbao, unter 140.000 km",
+  "category": "cross_language",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 140000
+    }
+   },
+   "geo": {
+    "lat": 43.263,
+    "lon": -2.935,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "green",
+    "field": "fuel",
+    "values": [
+     "hybrid",
+     "electric"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-26",
+  "portal": "cars",
+  "lang": "en",
+  "text": "low emissions hatchback",
+  "category": "cross_language",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "hatchback"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "green",
+    "field": "fuel",
+    "values": [
+     "hybrid",
+     "electric"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-27",
+  "portal": "cars",
+  "lang": "es",
+  "text": "ecológico suv menos de 110.000 km",
+  "category": "cross_language",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 110000
+    },
+    "body": {
+     "eq": "suv"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "green",
+    "field": "fuel",
+    "values": [
+     "hybrid",
+     "electric"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-28",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "bez sprzęgła przebieg do 190 000 km",
+  "category": "cross_language",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 190000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "easy",
+    "field": "gearbox",
+    "values": [
+     "automatic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-29",
+  "portal": "cars",
+  "lang": "es",
+  "text": "para mduanzas menos de 9.000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "cars",
+   "facts": {},
+   "priceMaxMinor": 900000
+  },
+  "intent": [
+   {
+    "id": "cargo",
+    "field": "body",
+    "values": [
+     "van",
+     "pickup"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-30",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "do przeprwoadzek dostawczy do 3 000 EUR",
+  "category": "typo",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "body": {
+     "eq": "van"
+    }
+   },
+   "priceMaxMinor": 300000
+  },
+  "intent": [
+   {
+    "id": "cargo",
+    "field": "body",
+    "values": [
+     "van",
+     "pickup"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-31",
+  "portal": "cars",
+  "lang": "de",
+  "text": "zum möbletransport diesel bis 22.000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "diesel"
+    }
+   },
+   "priceMaxMinor": 2200000
+  },
+  "intent": [
+   {
+    "id": "cargo",
+    "field": "body",
+    "values": [
+     "van",
+     "pickup"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-32",
+  "portal": "cars",
+  "lang": "en",
+  "text": "no cltuch near Poznan, under 370,000 km",
+  "category": "typo",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "mileage_km": {
+     "max": 370000
+    }
+   },
+   "geo": {
+    "lat": 52.406,
+    "lon": 16.925,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "easy",
+    "field": "gearbox",
+    "values": [
+     "automatic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-33",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "sans embraygae près de Zurich, moins de 11 000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "cars",
+   "facts": {},
+   "priceMaxMinor": 1100000,
+   "geo": {
+    "lat": 47.377,
+    "lon": 8.541,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "easy",
+    "field": "gearbox",
+    "values": [
+     "automatic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-34",
+  "portal": "cars",
+  "lang": "es",
+  "text": "coche fmailiar gasolina cerca de Marsella",
+  "category": "typo",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "petrol"
+    }
+   },
+   "geo": {
+    "lat": 43.296,
+    "lon": 5.37,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "body",
+    "values": [
+     "suv",
+     "estate",
+     "van"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cars-35",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "elektryczny pickup w okolicy Wrocław",
+  "category": "impossible",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "electric"
+    },
+    "body": {
+     "eq": "pickup"
+    }
+   },
+   "geo": {
+    "lat": 51.108,
+    "lon": 17.039,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-36",
+  "portal": "cars",
+  "lang": "de",
+  "text": "elektro pickup bei Lodz",
+  "category": "impossible",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "electric"
+    },
+    "body": {
+     "eq": "pickup"
+    }
+   },
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-37",
+  "portal": "cars",
+  "lang": "en",
+  "text": "electric pickup near Wroclaw",
+  "category": "impossible",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "electric"
+    },
+    "body": {
+     "eq": "pickup"
+    }
+   },
+   "geo": {
+    "lat": 51.108,
+    "lon": 17.039,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-38",
+  "portal": "cars",
+  "lang": "fr",
+  "text": "électrique pick-up près de Düsseldorf",
+  "category": "impossible",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "electric"
+    },
+    "body": {
+     "eq": "pickup"
+    }
+   },
+   "geo": {
+    "lat": 51.227,
+    "lon": 6.773,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-39",
+  "portal": "cars",
+  "lang": "es",
+  "text": "eléctrico pickup cerca de Múnich",
+  "category": "impossible",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "electric"
+    },
+    "body": {
+     "eq": "pickup"
+    }
+   },
+   "geo": {
+    "lat": 48.137,
+    "lon": 11.575,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "cars-40",
+  "portal": "cars",
+  "lang": "pl",
+  "text": "elektryczny pickup w okolicy Walencja",
+  "category": "impossible",
+  "filters": {
+   "portal": "cars",
+   "facts": {
+    "fuel": {
+     "eq": "electric"
+    },
+    "body": {
+     "eq": "pickup"
+    }
+   },
+   "geo": {
+    "lat": 39.47,
+    "lon": -0.376,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-01",
+  "portal": "homes",
+  "lang": "de",
+  "text": "haus kaufen bei Lodz",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   },
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-02",
+  "portal": "homes",
+  "lang": "en",
+  "text": "house home for sale under €450,000",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   },
+   "priceMaxMinor": 45000000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-03",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "maison à vendre près de Francfort, au moins 8 pièces",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 8
+    },
+    "type": {
+     "eq": "house"
+    }
+   },
+   "geo": {
+    "lat": 50.11,
+    "lon": 8.682,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-04",
+  "portal": "homes",
+  "lang": "es",
+  "text": "casa en venta cerca de Lodz, desde 5 habitaciones, menos de 780k €",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 5
+    },
+    "type": {
+     "eq": "house"
+    }
+   },
+   "priceMaxMinor": 78000000,
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-05",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "mieszkanie na sprzedaż do 520 000 €",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "priceMaxMinor": 52000000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-06",
+  "portal": "homes",
+  "lang": "de",
+  "text": "kaufen bei Dresden, bis 200.000 €, ab 1 zimmer",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 1
+    }
+   },
+   "priceMaxMinor": 20000000,
+   "geo": {
+    "lat": 51.05,
+    "lon": 13.738,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-07",
+  "portal": "homes",
+  "lang": "en",
+  "text": "home for sale at least 4 rooms, under €570,000",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 4
+    }
+   },
+   "priceMaxMinor": 57000000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-08",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "maison à vendre près de Prague, au moins 6 pièces",
+  "category": "filter",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    },
+    "rooms": {
+     "min": 6
+    }
+   },
+   "geo": {
+    "lat": 50.075,
+    "lon": 14.438,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-09",
+  "portal": "homes",
+  "lang": "es",
+  "text": "para una familia en venta cerca de Lodz",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-10",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "dla rodziny dom na sprzedaż do 960 000 EUR",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   },
+   "priceMaxMinor": 96000000
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-11",
+  "portal": "homes",
+  "lang": "de",
+  "text": "stadtleben wohnung kaufen bis 70k €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "priceMaxMinor": 7000000
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-12",
+  "portal": "homes",
+  "lang": "en",
+  "text": "for a growing family house home for sale",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-13",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "pour une famille maison de ville à vendre moins de 860 000 €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "townhouse"
+    }
+   },
+   "priceMaxMinor": 86000000
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-14",
+  "portal": "homes",
+  "lang": "es",
+  "text": "vida en la ciudad piso en venta menos de 90.000 €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "priceMaxMinor": 9000000
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-15",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "dla rodziny na sprzedaż od 5 pokoi, do 490 000 EUR",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 5
+    }
+   },
+   "priceMaxMinor": 49000000
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-16",
+  "portal": "homes",
+  "lang": "de",
+  "text": "für eine familie kaufen bei Lodz",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-17",
+  "portal": "homes",
+  "lang": "en",
+  "text": "with a garden for kids home for sale around Frankfurt, below €2,060,000",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "priceMaxMinor": 206000000,
+   "geo": {
+    "lat": 50.11,
+    "lon": 8.682,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-18",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "avec jardin pour enfants à vendre à Barcelone",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 41.385,
+    "lon": 2.173,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-19",
+  "portal": "homes",
+  "lang": "es",
+  "text": "con jardín para niños en venta hasta 430k €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "priceMaxMinor": 43000000
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-20",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "blisko centrum mieszkanie na sprzedaż koło Monachium",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "geo": {
+    "lat": 48.137,
+    "lon": 11.575,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-21",
+  "portal": "homes",
+  "lang": "de",
+  "text": "zentrumsnah kaufen nahe Barcelona, unter 260k €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "priceMaxMinor": 26000000,
+   "geo": {
+    "lat": 41.385,
+    "lon": 2.173,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-22",
+  "portal": "homes",
+  "lang": "en",
+  "text": "close to downtown home for sale around Barcelona, below €260k",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "priceMaxMinor": 26000000,
+   "geo": {
+    "lat": 41.385,
+    "lon": 2.173,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-23",
+  "portal": "homes",
+  "lang": "es",
+  "text": "para una familia casa en venta cerca de Hamburgo",
+  "category": "cross_language",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   },
+   "geo": {
+    "lat": 53.55,
+    "lon": 9.99,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-24",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "dla rodziny dom na sprzedaż od 3 pokoi",
+  "category": "cross_language",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    },
+    "rooms": {
+     "min": 3
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-25",
+  "portal": "homes",
+  "lang": "de",
+  "text": "stadtleben kaufen bis 200k €, ab 1 zimmer",
+  "category": "cross_language",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 1
+    }
+   },
+   "priceMaxMinor": 20000000
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-26",
+  "portal": "homes",
+  "lang": "en",
+  "text": "for a growing family home for sale near Lille, at least 5 rooms",
+  "category": "cross_language",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 5
+    }
+   },
+   "geo": {
+    "lat": 50.63,
+    "lon": 3.057,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-27",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "pour une famille maison de ville à vendre au moins 3 pièces",
+  "category": "cross_language",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "townhouse"
+    },
+    "rooms": {
+     "min": 3
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-28",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "dla rodziny dom na sprzedaż",
+  "category": "cross_language",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-29",
+  "portal": "homes",
+  "lang": "es",
+  "text": "vida en la ciuadd piso en venta menos de 1.130.000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "priceMaxMinor": 113000000
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-30",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "dla rodziny szreegowiec na sprzedaż od 3 pokoi",
+  "category": "typo",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 3
+    },
+    "type": {
+     "eq": "townhouse"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-31",
+  "portal": "homes",
+  "lang": "de",
+  "text": "statdleben kaufen bis 70.000 €, ab 1 zimmer",
+  "category": "typo",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 1
+    }
+   },
+   "priceMaxMinor": 7000000
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-32",
+  "portal": "homes",
+  "lang": "en",
+  "text": "city living apatrment home for sale at least 4 rooms",
+  "category": "typo",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 4
+    },
+    "type": {
+     "eq": "apartment"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "city",
+    "field": "type",
+    "values": [
+     "apartment"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-33",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "pour une fmaille maison à vendre au moins 5 pièces",
+  "category": "typo",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "rooms": {
+     "min": 5
+    },
+    "type": {
+     "eq": "house"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-34",
+  "portal": "homes",
+  "lang": "es",
+  "text": "para una faimlia casa en venta",
+  "category": "typo",
+  "filters": {
+   "portal": "homes",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "family",
+    "field": "type",
+    "values": [
+     "house",
+     "townhouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "homes-35",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "na sprzedaż w okolicy Łódź, do 9 000 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 900000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-36",
+  "portal": "homes",
+  "lang": "de",
+  "text": "kaufen bei Breslau, bis 9.000 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 51.108,
+    "lon": 17.039,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 900000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-37",
+  "portal": "homes",
+  "lang": "en",
+  "text": "home for sale near Vienna, under €9k",
+  "category": "impossible",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 48.208,
+    "lon": 16.373,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 900000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-38",
+  "portal": "homes",
+  "lang": "fr",
+  "text": "à vendre près de Barcelone, moins de 9k €",
+  "category": "impossible",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 41.385,
+    "lon": 2.173,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 900000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-39",
+  "portal": "homes",
+  "lang": "es",
+  "text": "en venta cerca de Berlín, menos de 9k €",
+  "category": "impossible",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 52.52,
+    "lon": 13.405,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 900000
+  },
+  "intent": []
+ },
+ {
+  "id": "homes-40",
+  "portal": "homes",
+  "lang": "pl",
+  "text": "na sprzedaż w okolicy Kolonia, do 9k €",
+  "category": "impossible",
+  "filters": {
+   "portal": "homes",
+   "facts": {},
+   "geo": {
+    "lat": 50.938,
+    "lon": 6.96,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 900000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-01",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "möbliert wohnung mieten",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": true
+    },
+    "type": {
+     "eq": "apartment"
+    }
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-02",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "apartment unfurnished rent near Amsterdam",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    },
+    "furnished": {
+     "eq": false
+    }
+   },
+   "geo": {
+    "lat": 52.368,
+    "lon": 4.904,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-03",
+  "portal": "rentals",
+  "lang": "fr",
+  "text": "maison de ville louer près de Leipzig, moins de 400 € par mois, au moins 1 pièces",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "townhouse"
+    },
+    "rooms": {
+     "min": 1
+    }
+   },
+   "geo": {
+    "lat": 51.34,
+    "lon": 12.375,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 40000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-04",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "piso alquiler cerca de Lyon, menos de 450 € al mes",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "priceMaxMinor": 45000,
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-05",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "nieumeblowane wynajem w okolicy Malaga, od 1 pokoi",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": false
+    },
+    "rooms": {
+     "min": 1
+    }
+   },
+   "geo": {
+    "lat": 36.721,
+    "lon": -4.421,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-06",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "wohnung unmöbliert mieten bei Málaga",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    },
+    "furnished": {
+     "eq": false
+    }
+   },
+   "geo": {
+    "lat": 36.721,
+    "lon": -4.421,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-07",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "unfurnished rent near Munich",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": false
+    }
+   },
+   "geo": {
+    "lat": 48.137,
+    "lon": 11.575,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-08",
+  "portal": "rentals",
+  "lang": "fr",
+  "text": "maison de ville non meublé louer au moins 5 pièces",
+  "category": "filter",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 5
+    },
+    "type": {
+     "eq": "townhouse"
+    },
+    "furnished": {
+     "eq": false
+    }
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-09",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "listo para entrar alquiler cerca de Málaga",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 36.721,
+    "lon": -4.421,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-10",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "gotowe do wprowadzenia wynajem od 3 pokoi",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 3
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-11",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "für studenten mieten bei Lyon, ab 1 zimmer",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 1
+    }
+   },
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-12",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "for a student rent near Lyon",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-13",
+  "portal": "rentals",
+  "lang": "fr",
+  "text": "prêt à emménager louer près de Bilbao, au moins 2 pièces",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 2
+    }
+   },
+   "geo": {
+    "lat": 43.263,
+    "lon": -2.935,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-14",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "para estudiante piso alquiler",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-15",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "dla studenta nieumeblowane wynajem od 1 pokoi",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 1
+    },
+    "furnished": {
+     "eq": false
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-16",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "für studenten wohnung mieten bei Warschau",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "geo": {
+    "lat": 52.23,
+    "lon": 21.012,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-17",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "just bring a suitcase furnished rent below €600 per month",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": true
+    }
+   },
+   "priceMaxMinor": 60000
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-18",
+  "portal": "rentals",
+  "lang": "fr",
+  "text": "beaucoup d'espace louer jusqu'à 1 950 € par mois",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "priceMaxMinor": 195000
+  },
+  "intent": [
+   {
+    "id": "spacious",
+    "field": "area_m2",
+    "min": 90
+   }
+  ]
+ },
+ {
+  "id": "rentals-19",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "solo trae la maleta alquiler desde 1 habitaciones",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 1
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-20",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "tylko walizka wynajem poniżej 600 EUR miesięcznie",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "priceMaxMinor": 60000
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-21",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "nur koffer mitbringen einfamilienhaus mieten nahe Dresden",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "house"
+    }
+   },
+   "geo": {
+    "lat": 51.05,
+    "lon": 13.738,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-22",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "small place for one rent at least 2 rooms",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 2
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-23",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "amplio alquiler desde 3 habitaciones",
+  "category": "cross_language",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 3
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "spacious",
+    "field": "area_m2",
+    "min": 90
+   }
+  ]
+ },
+ {
+  "id": "rentals-24",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "przestronne mieszkanie wynajem w okolicy Lyon",
+  "category": "cross_language",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "type": {
+     "eq": "apartment"
+    }
+   },
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "spacious",
+    "field": "area_m2",
+    "min": 90
+   }
+  ]
+ },
+ {
+  "id": "rentals-25",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "großzügig unmöbliert mieten bis 2.600 € monatlich",
+  "category": "cross_language",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": false
+    }
+   },
+   "priceMaxMinor": 260000
+  },
+  "intent": [
+   {
+    "id": "spacious",
+    "field": "area_m2",
+    "min": 90
+   }
+  ]
+ },
+ {
+  "id": "rentals-26",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "move-in ready furnished rent under €2,300 per month",
+  "category": "cross_language",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": true
+    }
+   },
+   "priceMaxMinor": 230000
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-27",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "para estudiante amueblado alquiler",
+  "category": "cross_language",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "furnished": {
+     "eq": true
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-28",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "dla studenta wynajem do 350 € miesięcznie",
+  "category": "cross_language",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "priceMaxMinor": 35000
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-29",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "listo para entrar alquiler desde 2 haibtaciones",
+  "category": "typo",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 2
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "ready",
+    "field": "furnished",
+    "values": [
+     true
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rentals-30",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "dla sutdenta wynajem w okolicy Warszawa, od 1 pokoi",
+  "category": "typo",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 1
+    }
+   },
+   "geo": {
+    "lat": 52.23,
+    "lon": 21.012,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-31",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "großzüigg mieten ab 4 zimmer",
+  "category": "typo",
+  "filters": {
+   "portal": "rentals",
+   "facts": {
+    "rooms": {
+     "min": 4
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "spacious",
+    "field": "area_m2",
+    "min": 90
+   }
+  ]
+ },
+ {
+  "id": "rentals-32",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "for a studnet rent under €500 per month",
+  "category": "typo",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "priceMaxMinor": 50000
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-33",
+  "portal": "rentals",
+  "lang": "fr",
+  "text": "pour étudaint louer moins de 800 € par mois",
+  "category": "typo",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "priceMaxMinor": 80000
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-34",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "para estudiatne alquiler cerca de Hannover, menos de 450 € al mes",
+  "category": "typo",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 52.375,
+    "lon": 9.732,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 45000
+  },
+  "intent": [
+   {
+    "id": "small",
+    "field": "rooms",
+    "max": 2
+   }
+  ]
+ },
+ {
+  "id": "rentals-35",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "wynajem w okolicy Wrocław, do 40 EUR miesięcznie",
+  "category": "impossible",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 51.108,
+    "lon": 17.039,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 4000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-36",
+  "portal": "rentals",
+  "lang": "de",
+  "text": "mieten bei Bilbao, bis 40 € monatlich",
+  "category": "impossible",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 43.263,
+    "lon": -2.935,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 4000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-37",
+  "portal": "rentals",
+  "lang": "en",
+  "text": "rent near Valencia, under €40 per month",
+  "category": "impossible",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 39.47,
+    "lon": -0.376,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 4000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-38",
+  "portal": "rentals",
+  "lang": "fr",
+  "text": "louer près de Gdańsk, moins de 40 € par mois",
+  "category": "impossible",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 54.352,
+    "lon": 18.646,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 4000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-39",
+  "portal": "rentals",
+  "lang": "es",
+  "text": "alquiler cerca de Valencia, menos de 40 € al mes",
+  "category": "impossible",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 39.47,
+    "lon": -0.376,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 4000
+  },
+  "intent": []
+ },
+ {
+  "id": "rentals-40",
+  "portal": "rentals",
+  "lang": "pl",
+  "text": "wynajem w okolicy Malaga, do 40 EUR miesięcznie",
+  "category": "impossible",
+  "filters": {
+   "portal": "rentals",
+   "facts": {},
+   "geo": {
+    "lat": 36.721,
+    "lon": -4.421,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 4000
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-01",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "remote job bei Bilbao, gehalt ab 65.000 €",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "remote"
+    },
+    "salary_max": {
+     "min": 65000
+    }
+   },
+   "geo": {
+    "lat": 43.263,
+    "lon": -2.935,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-02",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "remote job near Valencia",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "remote"
+    }
+   },
+   "geo": {
+    "lat": 39.47,
+    "lon": -0.376,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-03",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "lead ingénieur données emploi",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "seniority": {
+     "eq": "lead"
+    },
+    "role": {
+     "eq": "data engineer"
+    }
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-04",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "presencial semi senior empleo",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "onsite"
+    },
+    "seniority": {
+     "eq": "mid"
+    }
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-05",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "zdalnie mid praca w okolicy Poznań, pensja od 65 000 €",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "remote"
+    },
+    "salary_max": {
+     "min": 65000
+    },
+    "seniority": {
+     "eq": "mid"
+    }
+   },
+   "geo": {
+    "lat": 52.406,
+    "lon": 16.925,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-06",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "softwareentwickler job bei Sevilla, gehalt ab 100.000 €",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "role": {
+     "eq": "software engineer"
+    },
+    "salary_max": {
+     "min": 100000
+    }
+   },
+   "geo": {
+    "lat": 37.389,
+    "lon": -5.984,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-07",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "remote sales manager job near Brussels",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "remote"
+    },
+    "role": {
+     "eq": "sales manager"
+    }
+   },
+   "geo": {
+    "lat": 50.85,
+    "lon": 4.352,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-08",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "junior emploi salaire au moins 45 000 €",
+  "category": "filter",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 45000
+    },
+    "seniority": {
+     "eq": "junior"
+    }
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-09",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "puesto de liderazgo agente de soporte lead empleo",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "role": {
+     "eq": "support agent"
+    },
+    "seniority": {
+     "eq": "lead"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "leader",
+    "field": "seniority",
+    "values": [
+     "lead"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-10",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "praca z domu zdalnie praca w okolicy Kolonia",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "remote"
+    }
+   },
+   "geo": {
+    "lat": 50.938,
+    "lon": 6.96,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-11",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "berufseinstieg kundenberater job bei Málaga",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "role": {
+     "eq": "support agent"
+    }
+   },
+   "geo": {
+    "lat": 36.721,
+    "lon": -4.421,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-12",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "work from home remote job",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "remote"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-13",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "rôle d'encadrement développeur logiciel hybride emploi",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "role": {
+     "eq": "software engineer"
+    },
+    "remote": {
+     "eq": "hybrid"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "leader",
+    "field": "seniority",
+    "values": [
+     "lead"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-14",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "trabajar desde casa empleo salario desde 80.000 €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 80000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-15",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "pierwsza praca junior praca",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "seniority": {
+     "eq": "junior"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-16",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "berufseinstieg junior job",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "seniority": {
+     "eq": "junior"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-17",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "manage a team hybrid work job",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "hybrid"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "leader",
+    "field": "seniority",
+    "values": [
+     "lead"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-18",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "débutant accepté emploi à Cologne, salaire au moins 45 000 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 45000
+    }
+   },
+   "geo": {
+    "lat": 50.938,
+    "lon": 6.96,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-19",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "dirigir un equipo jefe de equipo empleo salario desde 110.000 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 110000
+    },
+    "seniority": {
+     "eq": "lead"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "leader",
+    "field": "seniority",
+    "values": [
+     "lead"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-20",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "zarządzanie zespołem programista praca",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "role": {
+     "eq": "software engineer"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "leader",
+    "field": "seniority",
+    "values": [
+     "lead"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-21",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "kein pendeln teamleitung job gehalt ab 115.000 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "seniority": {
+     "eq": "lead"
+    },
+    "salary_max": {
+     "min": 115000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-22",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "first job after university nurse job salary from €55,000",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "role": {
+     "eq": "nurse"
+    },
+    "salary_max": {
+     "min": 55000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-23",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "trabajar desde casa junior enfermero empleo",
+  "category": "cross_language",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "seniority": {
+     "eq": "junior"
+    },
+    "role": {
+     "eq": "nurse"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-24",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "praca z domu praca w okolicy Drezno, pensja od 40 000 €",
+  "category": "cross_language",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 40000
+    }
+   },
+   "geo": {
+    "lat": 51.05,
+    "lon": 13.738,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-25",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "von zu hause arbeiten job bei Lyon",
+  "category": "cross_language",
+  "filters": {
+   "portal": "jobs",
+   "facts": {},
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-26",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "premier emploi sur site emploi",
+  "category": "cross_language",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "remote": {
+     "eq": "onsite"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-27",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "travailler de chez soi emploi salaire au moins 85 000 €",
+  "category": "cross_language",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 85000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-28",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "pierwsza praca praca w okolicy Frankfurt",
+  "category": "cross_language",
+  "filters": {
+   "portal": "jobs",
+   "facts": {},
+   "geo": {
+    "lat": 50.11,
+    "lon": 8.682,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-29",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "puesto de ldierazgo lead agente de soporte empleo",
+  "category": "typo",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "seniority": {
+     "eq": "lead"
+    },
+    "role": {
+     "eq": "support agent"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "leader",
+    "field": "seniority",
+    "values": [
+     "lead"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-30",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "pierwzsa praca junior praca pensja od 50 000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 50000
+    },
+    "seniority": {
+     "eq": "junior"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-31",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "von zu hause arbeietn senior job gehalt ab 75.000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 75000
+    },
+    "seniority": {
+     "eq": "senior"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "wfh",
+    "field": "remote",
+    "values": [
+     "remote"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-32",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "entry level job slaary from €55,000",
+  "category": "typo",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 55000
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-33",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "prmeier emploi junior emploi salaire au moins 60 000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 60000
+    },
+    "seniority": {
+     "eq": "junior"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-34",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "primer empleo empleo cerca de Poznan, slaario desde 45.000 €",
+  "category": "typo",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 45000
+    }
+   },
+   "geo": {
+    "lat": 52.406,
+    "lon": 16.925,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "entry",
+    "field": "seniority",
+    "values": [
+     "junior"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jobs-35",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "praca w okolicy Bilbao, pensja od 400 000 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 400000
+    }
+   },
+   "geo": {
+    "lat": 43.263,
+    "lon": -2.935,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-36",
+  "portal": "jobs",
+  "lang": "de",
+  "text": "job bei Zürich, gehalt ab 400.000 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 400000
+    }
+   },
+   "geo": {
+    "lat": 47.377,
+    "lon": 8.541,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-37",
+  "portal": "jobs",
+  "lang": "en",
+  "text": "job near Poznan, salary from €400,000",
+  "category": "impossible",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 400000
+    }
+   },
+   "geo": {
+    "lat": 52.406,
+    "lon": 16.925,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-38",
+  "portal": "jobs",
+  "lang": "fr",
+  "text": "emploi près de Lyon, salaire au moins 400 000 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 400000
+    }
+   },
+   "geo": {
+    "lat": 45.764,
+    "lon": 4.836,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-39",
+  "portal": "jobs",
+  "lang": "es",
+  "text": "empleo cerca de Cracovia, salario desde 400k €",
+  "category": "impossible",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 400000
+    }
+   },
+   "geo": {
+    "lat": 50.065,
+    "lon": 19.945,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "jobs-40",
+  "portal": "jobs",
+  "lang": "pl",
+  "text": "praca w okolicy Gdańsk, pensja od 400 000 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "jobs",
+   "facts": {
+    "salary_max": {
+     "min": 400000
+    }
+   },
+   "geo": {
+    "lat": 54.352,
+    "lon": 18.646,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-01",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "kinderwagen gebraucht bis 270 €",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "kids"
+    },
+    "condition": {
+     "eq": "fair"
+    }
+   },
+   "priceMaxMinor": 27000
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-02",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "near Bordeaux, under €390",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 39000,
+   "geo": {
+    "lat": 44.838,
+    "lon": -0.579,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-03",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "comme neuf poussette près de Madrid, moins de 160 €",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "like_new"
+    },
+    "category": {
+     "eq": "kids"
+    }
+   },
+   "geo": {
+    "lat": 40.417,
+    "lon": -3.704,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 16000
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-04",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "buen estado cerca de Leipzig, menos de 760 €",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "good"
+    }
+   },
+   "geo": {
+    "lat": 51.34,
+    "lon": 12.375,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 76000
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-05",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "wózek dziecięcy w okolicy Kraków",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "kids"
+    }
+   },
+   "geo": {
+    "lat": 50.065,
+    "lon": 19.945,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-06",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "wie neu laptop bei Kopenhagen, bis 850 €",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "like_new"
+    },
+    "category": {
+     "eq": "electronics"
+    }
+   },
+   "geo": {
+    "lat": 55.676,
+    "lon": 12.568,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 85000
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-07",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "sofa like new near Warsaw, under €420",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "furniture"
+    },
+    "condition": {
+     "eq": "like_new"
+    }
+   },
+   "geo": {
+    "lat": 52.23,
+    "lon": 21.012,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 42000
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-08",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "ordinateur portable près de Lille",
+  "category": "filter",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "electronics"
+    }
+   },
+   "geo": {
+    "lat": 50.63,
+    "lon": 3.057,
+    "radiusKm": 50
+   }
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-09",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "para un recién nacido buen estado",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "good"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "baby",
+    "field": "category",
+    "values": [
+     "kids"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-10",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "prawie nieużywany nowy sofa",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "new"
+    },
+    "category": {
+     "eq": "furniture"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-11",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "kaum benutzt bei Nürnberg",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 49.452,
+    "lon": 11.077,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-12",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "for outdoor exercise near Dusseldorf",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 51.227,
+    "lon": 6.773,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "outdoor",
+    "field": "category",
+    "values": [
+     "bikes",
+     "sports"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-13",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "à peine utilisé comme neuf près de Valence",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "like_new"
+    }
+   },
+   "geo": {
+    "lat": 39.47,
+    "lon": -0.376,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-14",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "casi sin usar menos de 230 €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 23000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-15",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "sport na świeżym powietrzu do 140 €",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 14000
+  },
+  "intent": [
+   {
+    "id": "outdoor",
+    "field": "category",
+    "values": [
+     "bikes",
+     "sports"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-16",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "kaum benutzt kinderwagen bei Köln",
+  "category": "filter_semantic",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "kids"
+    }
+   },
+   "geo": {
+    "lat": 50.938,
+    "lon": 6.96,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-17",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "to get fit outside golf clubs",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "sports"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "outdoor",
+    "field": "category",
+    "values": [
+     "bikes",
+     "sports"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-18",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "encore emballé baskets à Dresde",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "fashion"
+    }
+   },
+   "geo": {
+    "lat": 51.05,
+    "lon": 13.738,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-19",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "cosas de bebé silla de coche hasta 190 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "kids"
+    }
+   },
+   "priceMaxMinor": 19000
+  },
+  "intent": [
+   {
+    "id": "baby",
+    "field": "category",
+    "values": [
+     "kids"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-20",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "w pudełku koło Warszawa, poniżej 330 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 52.23,
+    "lon": 21.012,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 33000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-21",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "noch originalverpackt unter 300 €",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 30000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-22",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "still in the box brand new",
+  "category": "paraphrase",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "new"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-23",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "casi sin usar como nuevo cerca de Lodz",
+  "category": "cross_language",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "like_new"
+    }
+   },
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-24",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "casi sin usar nuevo portátil",
+  "category": "cross_language",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "new"
+    },
+    "category": {
+     "eq": "electronics"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-25",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "barely used tennis racket",
+  "category": "cross_language",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "sports"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-26",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "à peine utilisé canapé moins de 330 €",
+  "category": "cross_language",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "furniture"
+    }
+   },
+   "priceMaxMinor": 33000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-27",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "à peine utilisé moins de 60 €",
+  "category": "cross_language",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 6000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-28",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "prawie nieużywany nowy",
+  "category": "cross_language",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "new"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-29",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "casi sin usar protátil cerca de Lodz",
+  "category": "typo",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "electronics"
+    }
+   },
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-30",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "prawie nieuyżwany w okolicy Łódź",
+  "category": "typo",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 51.759,
+    "lon": 19.456,
+    "radiusKm": 50
+   }
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-31",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "kaum benuztt bis 300 €",
+  "category": "typo",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 30000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-32",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "baerly used under €140",
+  "category": "typo",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "priceMaxMinor": 14000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-33",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "soprt en plein air vélo",
+  "category": "typo",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "category": {
+     "eq": "bikes"
+    }
+   }
+  },
+  "intent": [
+   {
+    "id": "outdoor",
+    "field": "category",
+    "values": [
+     "bikes",
+     "sports"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-34",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "casi sin usar como neuvo menos de 220 €",
+  "category": "typo",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {
+    "condition": {
+     "eq": "like_new"
+    }
+   },
+   "priceMaxMinor": 22000
+  },
+  "intent": [
+   {
+    "id": "barely",
+    "field": "condition",
+    "values": [
+     "new",
+     "like_new"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marketplace-35",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "w okolicy Tuluza, do 2 EUR",
+  "category": "impossible",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 43.605,
+    "lon": 1.444,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 200
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-36",
+  "portal": "marketplace",
+  "lang": "de",
+  "text": "bei Leipzig, bis 2 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 51.34,
+    "lon": 12.375,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 200
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-37",
+  "portal": "marketplace",
+  "lang": "en",
+  "text": "near Krakow, under €2",
+  "category": "impossible",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 50.065,
+    "lon": 19.945,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 200
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-38",
+  "portal": "marketplace",
+  "lang": "fr",
+  "text": "près de Leipzig, moins de 2 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 51.34,
+    "lon": 12.375,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 200
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-39",
+  "portal": "marketplace",
+  "lang": "es",
+  "text": "cerca de Hamburgo, menos de 2 €",
+  "category": "impossible",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 53.55,
+    "lon": 9.99,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 200
+  },
+  "intent": []
+ },
+ {
+  "id": "marketplace-40",
+  "portal": "marketplace",
+  "lang": "pl",
+  "text": "w okolicy Berlin, do 2 EUR",
+  "category": "impossible",
+  "filters": {
+   "portal": "marketplace",
+   "facts": {},
+   "geo": {
+    "lat": 52.52,
+    "lon": 13.405,
+    "radiusKm": 50
+   },
+   "priceMaxMinor": 200
+  },
+  "intent": []
+ }
+]

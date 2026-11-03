@@ -42,7 +42,7 @@ export const factsSchemas = {
     type: z.enum(HOME_TYPES),
     rooms: z.number().positive(),
     area_m2: z.number().positive(),
-    year_built: year,
+    year_built: z.number().int().min(1850).max(2030),
   }),
   rentals: z.object({
     type: z.enum(HOME_TYPES),

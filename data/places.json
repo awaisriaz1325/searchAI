@@ -1,0 +1,661 @@
+[
+ {
+  "name": "hamburg",
+  "lat": 53.55,
+  "lon": 9.99,
+  "country": "DE",
+  "display": {
+   "de": "Hamburg",
+   "en": "Hamburg",
+   "fr": "Hambourg",
+   "es": "Hamburgo",
+   "pl": "Hamburg"
+  },
+  "aliases": [
+   "hamburg",
+   "hambourg",
+   "hamburgo"
+  ]
+ },
+ {
+  "name": "berlin",
+  "lat": 52.52,
+  "lon": 13.405,
+  "country": "DE",
+  "display": {
+   "de": "Berlin",
+   "en": "Berlin",
+   "fr": "Berlin",
+   "es": "Berlín",
+   "pl": "Berlin"
+  },
+  "aliases": [
+   "berlin",
+   "berlín"
+  ]
+ },
+ {
+  "name": "munich",
+  "lat": 48.137,
+  "lon": 11.575,
+  "country": "DE",
+  "display": {
+   "de": "München",
+   "en": "Munich",
+   "fr": "Munich",
+   "es": "Múnich",
+   "pl": "Monachium"
+  },
+  "aliases": [
+   "munich",
+   "münchen",
+   "múnich",
+   "monachium",
+   "muenchen",
+   "munchen"
+  ]
+ },
+ {
+  "name": "cologne",
+  "lat": 50.938,
+  "lon": 6.96,
+  "country": "DE",
+  "display": {
+   "de": "Köln",
+   "en": "Cologne",
+   "fr": "Cologne",
+   "es": "Colonia",
+   "pl": "Kolonia"
+  },
+  "aliases": [
+   "cologne",
+   "köln",
+   "colonia",
+   "kolonia",
+   "koeln",
+   "koln"
+  ]
+ },
+ {
+  "name": "frankfurt",
+  "lat": 50.11,
+  "lon": 8.682,
+  "country": "DE",
+  "display": {
+   "de": "Frankfurt",
+   "en": "Frankfurt",
+   "fr": "Francfort",
+   "es": "Fráncfort",
+   "pl": "Frankfurt"
+  },
+  "aliases": [
+   "frankfurt",
+   "francfort",
+   "fráncfort"
+  ]
+ },
+ {
+  "name": "stuttgart",
+  "lat": 48.776,
+  "lon": 9.183,
+  "country": "DE",
+  "display": {
+   "de": "Stuttgart",
+   "en": "Stuttgart",
+   "fr": "Stuttgart",
+   "es": "Stuttgart",
+   "pl": "Stuttgart"
+  },
+  "aliases": [
+   "stuttgart"
+  ]
+ },
+ {
+  "name": "dusseldorf",
+  "lat": 51.227,
+  "lon": 6.773,
+  "country": "DE",
+  "display": {
+   "de": "Düsseldorf",
+   "en": "Dusseldorf",
+   "fr": "Düsseldorf",
+   "es": "Düsseldorf",
+   "pl": "Düsseldorf"
+  },
+  "aliases": [
+   "dusseldorf",
+   "düsseldorf",
+   "duesseldorf"
+  ]
+ },
+ {
+  "name": "leipzig",
+  "lat": 51.34,
+  "lon": 12.375,
+  "country": "DE",
+  "display": {
+   "de": "Leipzig",
+   "en": "Leipzig",
+   "fr": "Leipzig",
+   "es": "Leipzig",
+   "pl": "Lipsk"
+  },
+  "aliases": [
+   "leipzig",
+   "lipsk"
+  ]
+ },
+ {
+  "name": "hanover",
+  "lat": 52.375,
+  "lon": 9.732,
+  "country": "DE",
+  "display": {
+   "de": "Hannover",
+   "en": "Hanover",
+   "fr": "Hanovre",
+   "es": "Hannover",
+   "pl": "Hanower"
+  },
+  "aliases": [
+   "hanover",
+   "hannover",
+   "hanovre",
+   "hanower"
+  ]
+ },
+ {
+  "name": "bremen",
+  "lat": 53.079,
+  "lon": 8.801,
+  "country": "DE",
+  "display": {
+   "de": "Bremen",
+   "en": "Bremen",
+   "fr": "Brême",
+   "es": "Bremen",
+   "pl": "Brema"
+  },
+  "aliases": [
+   "bremen",
+   "brême",
+   "brema"
+  ]
+ },
+ {
+  "name": "dresden",
+  "lat": 51.05,
+  "lon": 13.738,
+  "country": "DE",
+  "display": {
+   "de": "Dresden",
+   "en": "Dresden",
+   "fr": "Dresde",
+   "es": "Dresde",
+   "pl": "Drezno"
+  },
+  "aliases": [
+   "dresden",
+   "dresde",
+   "drezno"
+  ]
+ },
+ {
+  "name": "nuremberg",
+  "lat": 49.452,
+  "lon": 11.077,
+  "country": "DE",
+  "display": {
+   "de": "Nürnberg",
+   "en": "Nuremberg",
+   "fr": "Nuremberg",
+   "es": "Núremberg",
+   "pl": "Norymberga"
+  },
+  "aliases": [
+   "nuremberg",
+   "nürnberg",
+   "núremberg",
+   "norymberga",
+   "nuernberg"
+  ]
+ },
+ {
+  "name": "vienna",
+  "lat": 48.208,
+  "lon": 16.373,
+  "country": "AT",
+  "display": {
+   "de": "Wien",
+   "en": "Vienna",
+   "fr": "Vienne",
+   "es": "Viena",
+   "pl": "Wiedeń"
+  },
+  "aliases": [
+   "vienna",
+   "wien",
+   "vienne",
+   "viena",
+   "wiedeń"
+  ]
+ },
+ {
+  "name": "zurich",
+  "lat": 47.377,
+  "lon": 8.541,
+  "country": "CH",
+  "display": {
+   "de": "Zürich",
+   "en": "Zurich",
+   "fr": "Zurich",
+   "es": "Zúrich",
+   "pl": "Zurych"
+  },
+  "aliases": [
+   "zurich",
+   "zürich",
+   "zúrich",
+   "zurych",
+   "zuerich"
+  ]
+ },
+ {
+  "name": "paris",
+  "lat": 48.857,
+  "lon": 2.352,
+  "country": "FR",
+  "display": {
+   "de": "Paris",
+   "en": "Paris",
+   "fr": "Paris",
+   "es": "París",
+   "pl": "Paryż"
+  },
+  "aliases": [
+   "paris",
+   "parís",
+   "paryż"
+  ]
+ },
+ {
+  "name": "lyon",
+  "lat": 45.764,
+  "lon": 4.836,
+  "country": "FR",
+  "display": {
+   "de": "Lyon",
+   "en": "Lyon",
+   "fr": "Lyon",
+   "es": "Lyon",
+   "pl": "Lyon"
+  },
+  "aliases": [
+   "lyon"
+  ]
+ },
+ {
+  "name": "marseille",
+  "lat": 43.296,
+  "lon": 5.37,
+  "country": "FR",
+  "display": {
+   "de": "Marseille",
+   "en": "Marseille",
+   "fr": "Marseille",
+   "es": "Marsella",
+   "pl": "Marsylia"
+  },
+  "aliases": [
+   "marseille",
+   "marsella",
+   "marsylia"
+  ]
+ },
+ {
+  "name": "toulouse",
+  "lat": 43.605,
+  "lon": 1.444,
+  "country": "FR",
+  "display": {
+   "de": "Toulouse",
+   "en": "Toulouse",
+   "fr": "Toulouse",
+   "es": "Toulouse",
+   "pl": "Tuluza"
+  },
+  "aliases": [
+   "toulouse",
+   "tuluza"
+  ]
+ },
+ {
+  "name": "lille",
+  "lat": 50.63,
+  "lon": 3.057,
+  "country": "FR",
+  "display": {
+   "de": "Lille",
+   "en": "Lille",
+   "fr": "Lille",
+   "es": "Lille",
+   "pl": "Lille"
+  },
+  "aliases": [
+   "lille"
+  ]
+ },
+ {
+  "name": "bordeaux",
+  "lat": 44.838,
+  "lon": -0.579,
+  "country": "FR",
+  "display": {
+   "de": "Bordeaux",
+   "en": "Bordeaux",
+   "fr": "Bordeaux",
+   "es": "Burdeos",
+   "pl": "Bordeaux"
+  },
+  "aliases": [
+   "bordeaux",
+   "burdeos"
+  ]
+ },
+ {
+  "name": "madrid",
+  "lat": 40.417,
+  "lon": -3.704,
+  "country": "ES",
+  "display": {
+   "de": "Madrid",
+   "en": "Madrid",
+   "fr": "Madrid",
+   "es": "Madrid",
+   "pl": "Madryt"
+  },
+  "aliases": [
+   "madrid",
+   "madryt"
+  ]
+ },
+ {
+  "name": "barcelona",
+  "lat": 41.385,
+  "lon": 2.173,
+  "country": "ES",
+  "display": {
+   "de": "Barcelona",
+   "en": "Barcelona",
+   "fr": "Barcelone",
+   "es": "Barcelona",
+   "pl": "Barcelona"
+  },
+  "aliases": [
+   "barcelona",
+   "barcelone"
+  ]
+ },
+ {
+  "name": "valencia",
+  "lat": 39.47,
+  "lon": -0.376,
+  "country": "ES",
+  "display": {
+   "de": "Valencia",
+   "en": "Valencia",
+   "fr": "Valence",
+   "es": "Valencia",
+   "pl": "Walencja"
+  },
+  "aliases": [
+   "valencia",
+   "valence",
+   "walencja"
+  ]
+ },
+ {
+  "name": "seville",
+  "lat": 37.389,
+  "lon": -5.984,
+  "country": "ES",
+  "display": {
+   "de": "Sevilla",
+   "en": "Seville",
+   "fr": "Séville",
+   "es": "Sevilla",
+   "pl": "Sewilla"
+  },
+  "aliases": [
+   "seville",
+   "sevilla",
+   "séville",
+   "sewilla"
+  ]
+ },
+ {
+  "name": "bilbao",
+  "lat": 43.263,
+  "lon": -2.935,
+  "country": "ES",
+  "display": {
+   "de": "Bilbao",
+   "en": "Bilbao",
+   "fr": "Bilbao",
+   "es": "Bilbao",
+   "pl": "Bilbao"
+  },
+  "aliases": [
+   "bilbao"
+  ]
+ },
+ {
+  "name": "malaga",
+  "lat": 36.721,
+  "lon": -4.421,
+  "country": "ES",
+  "display": {
+   "de": "Málaga",
+   "en": "Malaga",
+   "fr": "Malaga",
+   "es": "Málaga",
+   "pl": "Malaga"
+  },
+  "aliases": [
+   "malaga",
+   "málaga"
+  ]
+ },
+ {
+  "name": "warsaw",
+  "lat": 52.23,
+  "lon": 21.012,
+  "country": "PL",
+  "display": {
+   "de": "Warschau",
+   "en": "Warsaw",
+   "fr": "Varsovie",
+   "es": "Varsovia",
+   "pl": "Warszawa"
+  },
+  "aliases": [
+   "warsaw",
+   "warschau",
+   "varsovie",
+   "varsovia",
+   "warszawa",
+   "warszawie"
+  ]
+ },
+ {
+  "name": "krakow",
+  "lat": 50.065,
+  "lon": 19.945,
+  "country": "PL",
+  "display": {
+   "de": "Krakau",
+   "en": "Krakow",
+   "fr": "Cracovie",
+   "es": "Cracovia",
+   "pl": "Kraków"
+  },
+  "aliases": [
+   "krakow",
+   "krakau",
+   "cracovie",
+   "cracovia",
+   "kraków",
+   "krakowie"
+  ]
+ },
+ {
+  "name": "wroclaw",
+  "lat": 51.108,
+  "lon": 17.039,
+  "country": "PL",
+  "display": {
+   "de": "Breslau",
+   "en": "Wroclaw",
+   "fr": "Wrocław",
+   "es": "Breslavia",
+   "pl": "Wrocław"
+  },
+  "aliases": [
+   "wroclaw",
+   "breslau",
+   "wrocław",
+   "breslavia",
+   "wrocławiu"
+  ]
+ },
+ {
+  "name": "poznan",
+  "lat": 52.406,
+  "lon": 16.925,
+  "country": "PL",
+  "display": {
+   "de": "Posen",
+   "en": "Poznan",
+   "fr": "Poznań",
+   "es": "Poznan",
+   "pl": "Poznań"
+  },
+  "aliases": [
+   "poznan",
+   "posen",
+   "poznań",
+   "poznaniu"
+  ]
+ },
+ {
+  "name": "gdansk",
+  "lat": 54.352,
+  "lon": 18.646,
+  "country": "PL",
+  "display": {
+   "de": "Danzig",
+   "en": "Gdansk",
+   "fr": "Gdańsk",
+   "es": "Gdansk",
+   "pl": "Gdańsk"
+  },
+  "aliases": [
+   "gdansk",
+   "danzig",
+   "gdańsk",
+   "gdańsku"
+  ]
+ },
+ {
+  "name": "lodz",
+  "lat": 51.759,
+  "lon": 19.456,
+  "country": "PL",
+  "display": {
+   "de": "Lodz",
+   "en": "Lodz",
+   "fr": "Łódź",
+   "es": "Lodz",
+   "pl": "Łódź"
+  },
+  "aliases": [
+   "lodz",
+   "łódź",
+   "łodzi"
+  ]
+ },
+ {
+  "name": "amsterdam",
+  "lat": 52.368,
+  "lon": 4.904,
+  "country": "NL",
+  "display": {
+   "de": "Amsterdam",
+   "en": "Amsterdam",
+   "fr": "Amsterdam",
+   "es": "Ámsterdam",
+   "pl": "Amsterdam"
+  },
+  "aliases": [
+   "amsterdam",
+   "ámsterdam"
+  ]
+ },
+ {
+  "name": "brussels",
+  "lat": 50.85,
+  "lon": 4.352,
+  "country": "BE",
+  "display": {
+   "de": "Brüssel",
+   "en": "Brussels",
+   "fr": "Bruxelles",
+   "es": "Bruselas",
+   "pl": "Bruksela"
+  },
+  "aliases": [
+   "brussels",
+   "brüssel",
+   "bruxelles",
+   "bruselas",
+   "bruksela"
+  ]
+ },
+ {
+  "name": "prague",
+  "lat": 50.075,
+  "lon": 14.438,
+  "country": "CZ",
+  "display": {
+   "de": "Prag",
+   "en": "Prague",
+   "fr": "Prague",
+   "es": "Praga",
+   "pl": "Praga"
+  },
+  "aliases": [
+   "prague",
+   "prag",
+   "praga"
+  ]
+ },
+ {
+  "name": "copenhagen",
+  "lat": 55.676,
+  "lon": 12.568,
+  "country": "DK",
+  "display": {
+   "de": "Kopenhagen",
+   "en": "Copenhagen",
+   "fr": "Copenhague",
+   "es": "Copenhague",
+   "pl": "Kopenhaga"
+  },
+  "aliases": [
+   "copenhagen",
+   "kopenhagen",
+   "copenhague",
+   "kopenhaga"
+  ]
+ }
+]
