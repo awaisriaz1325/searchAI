@@ -4,3 +4,4 @@ export * from './hash-embedder.ts';
 export * from './llm.ts';
 export * from './extract.ts';
 export * from './llm-parse.ts';
+export * from './reranker.ts';

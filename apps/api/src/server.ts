@@ -24,6 +24,7 @@ const deps: SearchDeps = {
   cache: env.REDIS_URL ? createRedisCache(env.REDIS_URL) : createMemoryCache(),
   onResponse: (r) => metrics.record(r),
 };
+if (env.RERANK === '1') deps.reranker = await ml.createCrossEncoder();
 if (env.LLM_PARSE === '1') deps.llmParser = ml.createLlmParser(await ml.createQwenLlm(), DEFAULT_CONFIG.llmParseTimeoutMs);
 
 const app = buildApp({ search: createSearch(deps), metrics, sql });
