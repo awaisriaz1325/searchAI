@@ -18,7 +18,8 @@ const addColumnsMs = performance.now() - t0;
 const t1 = performance.now();
 await sql`CREATE INDEX IF NOT EXISTS listings_cars_typed ON listings (fuel_col, mileage_col) WHERE portal = 'cars'`;
 const typedIndexMs = performance.now() - t1;
-await sql`ANALYZE listings`;
+// The column rewrite empties the visibility map; without VACUUM no index-only scan is possible.
+await sql`VACUUM ANALYZE listings`;
 
 const queries = {
   jsonb_expression_index: (km: number) =>

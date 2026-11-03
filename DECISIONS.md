@@ -83,3 +83,25 @@ What stands: latency, plan choice, index build time/size, and the filter strateg
 (post-filtering an HNSW top-40 returns 0 of 20 rows on the selective query, at any data shape).
 What does not: absolute ANN recall at 2M. Measuring it needs 2M distinct real embeddings:
 ~6.2 h on this CPU, or about $4 at Voyage list price.
+
+## 2026-11-03: Hot filters: promote to typed columns once a portal is large
+
+`results/bench/jsonb-vs-column.json`, 2M rows, "cars, diesel, mileage ≤ X" (≈68k matching rows):
+
+| index | p50 | p95 | plan | size |
+|---|---|---|---|---|
+| partial expression index on `facts` jsonb | 52.9 ms | 100.5 ms | Index Scan, heap fetches | 3.6 MB |
+| generated typed columns + B-tree | **4.5 ms** | 8.6 ms | Index Only Scan, 0 heap fetches | 2.9 MB |
+
+Cost: adding two stored generated columns rewrote the 2M-row table in 226 s (plus a VACUUM, without
+which the rewrite leaves no visibility map and the typed index is *slower*, 104 ms; caught in a
+first run and fixed). Decision: facts stay in `jsonb` (one schema for 20+ portals, no migration per
+new field), and each portal's two or three hottest filters get typed generated columns once traffic
+justifies a rewrite. This repo keeps the jsonb indexes so the app's default schema stays one shape.
+
+## 2026-11-03: Exact/ANN planner threshold stays at 20,000
+
+Measured exact ranking cost at 2M: 135,652 survivors in 732 ms p50, about 5.4 µs per survivor, so
+20,000 survivors ≈ 110 ms. Below that, exact ranking is both exact and inside budget. The plan was to
+set the threshold where ANN reaches recall ≥ 0.95; that crossover cannot be measured credibly on the
+derived vectors (previous entry), so the threshold is set by the latency budget alone.

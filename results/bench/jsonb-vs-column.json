@@ -1,0 +1,39 @@
+{
+ "jsonb_expression_index": {
+  "p50Ms": 52.85,
+  "p95Ms": 100.54,
+  "lastCount": 95301,
+  "explain": [
+   "Aggregate (actual time=73.891..73.893 rows=1 loops=1)",
+   "  Buffers: shared hit=67913",
+   "  ->  Index Scan using listings_cars_hot on listings (actual time=0.030..70.024 rows=67762 loops=1)",
+   "        Index Cond: (((facts ->> 'fuel'::text) = 'diesel'::text) AND (((facts ->> 'mileage_km'::text))::integer <= 100000))",
+   "        Buffers: shared hit=67913",
+   "Planning Time: 0.156 ms",
+   "Execution Time: 73.920 ms"
+  ]
+ },
+ "typed_column_index": {
+  "p50Ms": 4.47,
+  "p95Ms": 8.6,
+  "lastCount": 95301,
+  "explain": [
+   "Aggregate (actual time=9.594..9.595 rows=1 loops=1)",
+   "  Buffers: shared hit=1262",
+   "  ->  Index Only Scan using listings_cars_typed on listings (actual time=0.019..4.647 rows=67762 loops=1)",
+   "        Index Cond: ((fuel_col = 'diesel'::text) AND (mileage_col <= 100000))",
+   "        Heap Fetches: 0",
+   "        Buffers: shared hit=1262",
+   "Planning Time: 0.083 ms",
+   "Execution Time: 9.621 ms"
+  ]
+ },
+ "indexBytes": {
+  "jsonb_expression_index": 3555328,
+  "typed_column_index": 2932736
+ },
+ "migrationCost": {
+  "addGeneratedColumnsMs": 225951,
+  "buildTypedIndexMs": 832
+ }
+}
