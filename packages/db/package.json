@@ -1,0 +1,14 @@
+{
+  "name": "@searchai/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": {
+    "@searchai/core": "0.1.0",
+    "drizzle-orm": "0.45.4",
+    "pgvector": "0.3.0",
+    "postgres": "4.0.0"
+  },
+  "devDependencies": { "drizzle-kit": "0.31.11" }
+}
