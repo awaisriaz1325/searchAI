@@ -12,24 +12,33 @@ import { buildVectorIndexes, createSql, ingestListings, passageText, recreateDat
 import { createE5Embedder } from '@searchai/ml';
 import { perturbFrom } from './perturb.ts';
 
-const { values } = parseArgs({ options: { rows: { type: 'string', default: '2000000' }, db: { type: 'string', default: 'searchai_2m' } } });
+const { values } = parseArgs({
+  options: {
+    rows: { type: 'string', default: '2000000' },
+    db: { type: 'string', default: 'searchai_2m' },
+    // Resume after a failed vector-index build: keep the loaded rows, rebuild only the HNSW indexes.
+    'resume-vector-indexes': { type: 'string' },
+  },
+});
+const resume = values['resume-vector-indexes'] ? JSON.parse(values['resume-vector-indexes']) as { loadSeconds: number; indexes: Record<string, { ms: number; bytes: number }> } : null;
 const rows = Number(values.rows);
 const ADMIN = process.env.DATABASE_URL ?? 'postgres://postgres:postgres@localhost:5433/searchai';
-const url = await recreateDatabase(ADMIN, values.db!);
+const url = resume ? ADMIN.replace(/\/[^/]+$/, `/${values.db}`) : await recreateDatabase(ADMIN, values.db!);
 const sql = createSql(url, { max: 4 });
 
 const embedder = await createE5Embedder();
+if (resume) for (const i of ['all', 'cars', 'homes', 'rentals', 'jobs', 'marketplace']) await sql.unsafe(`DROP INDEX IF EXISTS listing_emb_hnsw_${i}`);
 const realListings = [...generateListings({ seed: 1, count: 1000 })];
 const realVectors = await embedder.embed(realListings.map(passageText), 'passage');
 const real = realListings.map((listing, i) => ({ listing, vector: realVectors[i]! }));
 const derive = perturbFrom(real, createRng(99));
 
-const secondary = await sql<{ indexname: string; indexdef: string }[]>`
+const secondary = resume ? [] : await sql<{ indexname: string; indexdef: string }[]>`
   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'listings' AND indexname NOT LIKE '%_pkey'`;
 for (const i of secondary) await sql.unsafe(`DROP INDEX ${i.indexname}`);
 
 const started = performance.now();
-const load = await ingestListings(sql, generateListings({ seed: 1, count: rows }), {
+const load = resume ? { rows, ms: resume.loadSeconds * 1000 } : await ingestListings(sql, generateListings({ seed: 1, count: rows }), {
   factsSource: 'truth',
   vectorModel: { model: embedder.model, version: `${embedder.version}+derived` },
   vectorsFor: (l) => (l.id <= 1000 ? realVectors[l.id - 1]! : derive(l).vector),
@@ -41,7 +50,7 @@ const load = await ingestListings(sql, generateListings({ seed: 1, count: rows }
 
 await sql`SET maintenance_work_mem = '4GB'`;
 await sql`SET max_parallel_maintenance_workers = 3`;
-const indexes: Record<string, { ms: number; bytes: number }> = {};
+const indexes: Record<string, { ms: number; bytes: number }> = { ...(resume?.indexes ?? {}) };
 for (const i of secondary) {
   const t = performance.now();
   await sql.unsafe(i.indexdef);

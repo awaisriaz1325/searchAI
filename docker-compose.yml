@@ -5,7 +5,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: searchai
     ports: ['5433:5432']
-    shm_size: 2gb
+    shm_size: 5gb
     command: >
       postgres -c shared_buffers=2GB -c maintenance_work_mem=2GB
       -c max_parallel_maintenance_workers=3 -c work_mem=64MB
