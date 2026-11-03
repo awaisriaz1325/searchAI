@@ -1,0 +1,16 @@
+{
+  "name": "@searchai/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "tsx src/server.ts" },
+  "dependencies": {
+    "@hono/node-server": "2.1.6",
+    "@searchai/core": "0.1.0",
+    "@searchai/db": "0.1.0",
+    "@searchai/ml": "0.1.0",
+    "@searchai/search": "0.1.0",
+    "hono": "4.13.16",
+    "zod": "4.6.7"
+  }
+}

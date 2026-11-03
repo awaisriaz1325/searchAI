@@ -1,5 +1,6 @@
 import type { HardFilters, Portal } from '@searchai/core';
 import { asRole, type Sql } from '@searchai/db';
+import { TTL, cacheKey, normalizeQuery } from './cache.ts';
 import type { SearchConfig } from './config.ts';
 import { CostMeter, approxTokens, type CostReport, type Prices } from './cost.ts';
 import { rrf } from './fusion.ts';
@@ -92,8 +93,40 @@ export function createSearch(deps: SearchDeps): SearchFn {
       return finish({ results: [], appliedFilters: parsed.filters, parsed, plan: null, violations: 0, cache: 'off', reason: 'empty_query' });
     }
 
+    const norm = normalizeQuery(req.q);
+    const cache = deps.cache;
+    const safeCache = {
+      get: async <T,>(key: string): Promise<T | null> => {
+        if (!cache) return null;
+        try {
+          return await cache.get<T>(key);
+        } catch {
+          degraded.push('cache_error');
+          return null;
+        }
+      },
+      set: async (key: string, value: unknown, ttl: number) => {
+        if (!cache) return;
+        try {
+          await cache.set(key, value, ttl);
+        } catch {
+          degraded.push('cache_error');
+        }
+      },
+    };
+    const resultKey = cacheKey({ kind: 'result', norm, role: 'anon', portal: req.portal, limit, rerank: req.rerank !== false });
+    const cached = await meter.time('cache', () => safeCache.get<SearchResponse>(resultKey));
+    if (cached) return finish({ ...cached, cache: 'hit' });
+
     // Embedding and the (rare) LLM parse run while nothing else waits on them.
-    const embedding = meter.time('embed', () => embedder.embed([req.q], 'query'), () => ({ embedTokens: approxTokens(req.q), modelCalls: 1 }));
+    const embedKey = cacheKey({ kind: 'embed', norm, role: 'anon' });
+    const embedding = (async () => {
+      const hit = await safeCache.get<number[]>(embedKey);
+      if (hit) return [Float32Array.from(hit)];
+      const v = await meter.time('embed', () => embedder.embed([req.q], 'query'), () => ({ embedTokens: approxTokens(req.q), modelCalls: 1 }));
+      await safeCache.set(embedKey, Array.from(v[0]!), TTL.embed);
+      return v;
+    })();
     let filters = parsed.filters;
     if (deps.llmParser && parsed.confidence < 1 && parsed.unparsed.length > 0) {
       const llm = await deps.llmParser(req.q, parsed);
@@ -106,7 +139,7 @@ export function createSearch(deps: SearchDeps): SearchFn {
     const plan = await meter.time('plan', () => asRole(sql, 'anon', null, (tx) => planSearch(tx, filters, config.exactThreshold)));
     if (plan.estimatedRows === 0) {
       await embedding.catch(() => undefined);
-      return finish({ results: [], appliedFilters: filters, parsed, plan, violations: 0, cache: 'off', reason: 'no_match_for_filters' });
+      return finish({ results: [], appliedFilters: filters, parsed, plan, violations: 0, cache: cache ? 'miss' : 'off', reason: 'no_match_for_filters' });
     }
 
     const [qvec] = await embedding;
@@ -141,6 +174,8 @@ export function createSearch(deps: SearchDeps): SearchFn {
       }
     }
     const { kept, violations } = await meter.time('postcheck', () => postCheck(rows.slice(0, limit), filters));
-    return finish({ results: kept, appliedFilters: filters, parsed, plan, violations, cache: 'off' });
+    const response = finish({ results: kept, appliedFilters: filters, parsed, plan, violations, cache: cache ? 'miss' : 'off' });
+    if (!degraded.length) await safeCache.set(resultKey, response, TTL.result);
+    return response;
   };
 }

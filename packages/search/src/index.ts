@@ -8,3 +8,4 @@ export * from './planner.ts';
 export * from './legs.ts';
 export * from './postcheck.ts';
 export * from './search.ts';
+export * from './cache.ts';
