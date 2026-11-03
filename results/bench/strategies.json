@@ -1,0 +1,392 @@
+{
+ "rows": 2000000,
+ "pgvector": "0.8.0",
+ "hardware": "4 vCPU / 15 GB, warm cache",
+ "scenarios": {
+  "selective": {
+   "text": "diesel van under €25,000 near Hamburg, under 100,000 km",
+   "filters": {
+    "facts": {
+     "fuel": {
+      "eq": "diesel"
+     },
+     "body": {
+      "eq": "van"
+     },
+     "mileage_km": {
+      "max": 100000
+     }
+    },
+    "portal": "cars",
+    "geo": {
+     "lat": 53.55,
+     "lon": 9.99,
+     "radiusKm": 50
+    },
+    "priceMaxMinor": 2500000
+   },
+   "matchingRows": 511,
+   "queries": 40,
+   "strategies": {
+    "prefilter_exact": {
+     "p50Ms": 154.3,
+     "p95Ms": 184.2,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "global_hnsw_postfilter(ef=40)": {
+     "p50Ms": 169,
+     "p95Ms": 201.3,
+     "rowsReturned": 0,
+     "recallAt20": 0
+    },
+    "planner_default(ef=40)": {
+     "p50Ms": 134,
+     "p95Ms": 181.3,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "portal_hnsw_iterative(ef=100)": {
+     "p50Ms": 155.5,
+     "p95Ms": 191.9,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "global_hnsw_iterative(ef=100)": {
+     "p50Ms": 154.5,
+     "p95Ms": 178,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    }
+   },
+   "explain": {
+    "planner_default(ef=40)": [
+     "Limit (actual time=127.813..127.818 rows=20 loops=1)",
+     "  Buffers: shared hit=36490",
+     "  ->  Sort (actual time=127.811..127.814 rows=20 loops=1)",
+     "        Sort Key: ((e.embedding <=> '<query vector>'::halfvec))",
+     "        Sort Method: top-N heapsort  Memory: 26kB",
+     "        Buffers: shared hit=36490",
+     "        ->  Nested Loop (actual time=0.656..127.677 rows=511 loops=1)",
+     "              Buffers: shared hit=36490",
+     "              ->  Index Scan using listings_cars_hot on listings l (actual time=0.643..124.541 rows=511 loops=1)",
+     "                    Index Cond: (((facts ->> 'fuel'::text) = 'diesel'::text) AND ((facts ->> 'body'::text) = 'van'::text) AND (((facts ->> 'mileage_km'::text))::integer <= 100000))",
+     "                    Filter: ((price_minor <= '2500000'::bigint) AND (status = 'published'::text) AND ('(3681949.308643292, 607371.8806635871, 5080443.064887786),(3781949.052586368, 707371.6246066628, 5180442.808830861)'::cube @> (ll_to_earth(lat, lon))::cube) AND (sec_to_gc(cube_distance('(3731949.18061483, 657371.752635125, 5130442.936859324)'::cube, (ll_to_earth(lat, lon))::cube)) <= '50000'::double precision))",
+     "                    Rows Removed by Filter: 33915",
+     "                    Buffers: shared hit=34446",
+     "              ->  Index Scan using listing_embeddings_pkey on listing_embeddings e (actual time=0.005..0.005 rows=1 loops=511)",
+     "                    Index Cond: (listing_id = l.id)",
+     "                    Filter: (portal = 'cars'::portal)",
+     "                    Buffers: shared hit=2044",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.677 ms",
+     "Execution Time: 127.847 ms"
+    ],
+    "portal_hnsw_iterative(ef=100)": [
+     "Subquery Scan on s (actual time=129.641..129.649 rows=20 loops=1)",
+     "  Buffers: shared hit=36490",
+     "  ->  Limit (actual time=129.639..129.644 rows=20 loops=1)",
+     "        Buffers: shared hit=36490",
+     "        ->  Sort (actual time=129.638..129.640 rows=20 loops=1)",
+     "              Sort Key: ((e.embedding <=> '<query vector>'::halfvec))",
+     "              Sort Method: top-N heapsort  Memory: 27kB",
+     "              Buffers: shared hit=36490",
+     "              ->  Nested Loop (actual time=0.653..129.492 rows=511 loops=1)",
+     "                    Buffers: shared hit=36490",
+     "                    ->  Index Scan using listings_cars_hot on listings l (actual time=0.640..126.369 rows=511 loops=1)",
+     "                          Index Cond: (((facts ->> 'fuel'::text) = 'diesel'::text) AND ((facts ->> 'body'::text) = 'van'::text) AND (((facts ->> 'mileage_km'::text))::integer <= 100000))",
+     "                          Filter: ((price_minor <= '2500000'::bigint) AND (status = 'published'::text) AND ('(3681949.308643292, 607371.8806635871, 5080443.064887786),(3781949.052586368, 707371.6246066628, 5180442.808830861)'::cube @> (ll_to_earth(lat, lon))::cube) AND (sec_to_gc(cube_distance('(3731949.18061483, 657371.752635125, 5130442.936859324)'::cube, (ll_to_earth(lat, lon))::cube)) <= '50000'::double precision))",
+     "                          Rows Removed by Filter: 33915",
+     "                          Buffers: shared hit=34446",
+     "                    ->  Index Scan using listing_embeddings_pkey on listing_embeddings e (actual time=0.005..0.005 rows=1 loops=511)",
+     "                          Index Cond: (listing_id = l.id)",
+     "                          Filter: (portal = 'cars'::portal)",
+     "                          Buffers: shared hit=2044",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.671 ms",
+     "Execution Time: 129.678 ms"
+    ]
+   }
+  },
+  "medium": {
+   "text": "cars: diesel under €25,000",
+   "filters": {
+    "portal": "cars",
+    "priceMaxMinor": 2500000,
+    "facts": {
+     "fuel": {
+      "eq": "diesel"
+     }
+    }
+   },
+   "matchingRows": 135652,
+   "queries": 40,
+   "strategies": {
+    "prefilter_exact": {
+     "p50Ms": 683.3,
+     "p95Ms": 799.1,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "global_hnsw_postfilter(ef=40)": {
+     "p50Ms": 11.7,
+     "p95Ms": 18.9,
+     "rowsReturned": 2.5,
+     "recallAt20": 0.017
+    },
+    "planner_default(ef=40)": {
+     "p50Ms": 542.8,
+     "p95Ms": 578.1,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "portal_hnsw_iterative(ef=100)": {
+     "p50Ms": 551.8,
+     "p95Ms": 618.4,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "global_hnsw_iterative(ef=100)": {
+     "p50Ms": 565.2,
+     "p95Ms": 614.3,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    }
+   },
+   "explain": {
+    "planner_default(ef=40)": [
+     "Limit (actual time=522.237..553.067 rows=20 loops=1)",
+     "  Buffers: shared hit=661800",
+     "  ->  Gather Merge (actual time=522.234..553.061 rows=20 loops=1)",
+     "        Workers Planned: 1",
+     "        Workers Launched: 1",
+     "        Buffers: shared hit=661800",
+     "        ->  Sort (actual time=518.831..518.836 rows=18 loops=2)",
+     "              Sort Key: ((e.embedding <=> '<query vector>'::halfvec))",
+     "              Sort Method: top-N heapsort  Memory: 26kB",
+     "              Buffers: shared hit=661800",
+     "              Worker 0:  Sort Method: top-N heapsort  Memory: 26kB",
+     "              ->  Nested Loop (actual time=53.261..509.276 rows=67826 loops=2)",
+     "                    Buffers: shared hit=661792",
+     "                    ->  Parallel Bitmap Heap Scan on listings l (actual time=53.163..243.352 rows=67826 loops=2)",
+     "                          Recheck Cond: (((facts ->> 'fuel'::text) = 'diesel'::text) AND (portal = 'cars'::portal))",
+     "                          Filter: ((price_minor <= '2500000'::bigint) AND (status = 'published'::text))",
+     "                          Rows Removed by Filter: 13987",
+     "                          Heap Blocks: exact=64252",
+     "                          Buffers: shared hit=119183",
+     "                          ->  Bitmap Index Scan on listings_cars_hot (actual time=30.831..30.832 rows=163626 loops=1)",
+     "                                Index Cond: ((facts ->> 'fuel'::text) = 'diesel'::text)",
+     "                                Buffers: shared hit=166",
+     "                    ->  Index Scan using listing_embeddings_pkey on listing_embeddings e (actual time=0.003..0.003 rows=1 loops=135652)",
+     "                          Index Cond: (listing_id = l.id)",
+     "                          Filter: (portal = 'cars'::portal)",
+     "                          Buffers: shared hit=542609",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.380 ms",
+     "Execution Time: 553.122 ms"
+    ],
+    "portal_hnsw_iterative(ef=100)": [
+     "Subquery Scan on s (actual time=521.861..550.661 rows=20 loops=1)",
+     "  Buffers: shared hit=661800",
+     "  ->  Limit (actual time=521.857..550.654 rows=20 loops=1)",
+     "        Buffers: shared hit=661800",
+     "        ->  Gather Merge (actual time=521.855..550.647 rows=20 loops=1)",
+     "              Workers Planned: 1",
+     "              Workers Launched: 1",
+     "              Buffers: shared hit=661800",
+     "              ->  Sort (actual time=518.533..518.537 rows=19 loops=2)",
+     "                    Sort Key: ((e.embedding <=> '<query vector>'::halfvec))",
+     "                    Sort Method: top-N heapsort  Memory: 27kB",
+     "                    Buffers: shared hit=661800",
+     "                    Worker 0:  Sort Method: top-N heapsort  Memory: 27kB",
+     "                    ->  Nested Loop (actual time=54.282..509.729 rows=67826 loops=2)",
+     "                          Buffers: shared hit=661792",
+     "                          ->  Parallel Bitmap Heap Scan on listings l (actual time=54.204..242.650 rows=67826 loops=2)",
+     "                                Recheck Cond: (((facts ->> 'fuel'::text) = 'diesel'::text) AND (portal = 'cars'::portal))",
+     "                                Filter: ((price_minor <= '2500000'::bigint) AND (status = 'published'::text))",
+     "                                Rows Removed by Filter: 13987",
+     "                                Heap Blocks: exact=65930",
+     "                                Buffers: shared hit=119183",
+     "                                ->  Bitmap Index Scan on listings_cars_hot (actual time=32.741..32.741 rows=163626 loops=1)",
+     "                                      Index Cond: ((facts ->> 'fuel'::text) = 'diesel'::text)",
+     "                                      Buffers: shared hit=166",
+     "                          ->  Index Scan using listing_embeddings_pkey on listing_embeddings e (actual time=0.003..0.003 rows=1 loops=135652)",
+     "                                Index Cond: (listing_id = l.id)",
+     "                                Filter: (portal = 'cars'::portal)",
+     "                                Buffers: shared hit=542609",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.449 ms",
+     "Execution Time: 550.718 ms"
+    ]
+   }
+  },
+  "broad": {
+   "text": "cars: under €60,000",
+   "filters": {
+    "portal": "cars",
+    "priceMaxMinor": 6000000,
+    "facts": {}
+   },
+   "matchingRows": 379998,
+   "queries": 40,
+   "strategies": {
+    "prefilter_exact": {
+     "p50Ms": 1922.2,
+     "p95Ms": 2150.3,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "global_hnsw_postfilter(ef=40)": {
+     "p50Ms": 8.3,
+     "p95Ms": 11.7,
+     "rowsReturned": 5.5,
+     "recallAt20": 0.02
+    },
+    "planner_default(ef=40)": {
+     "p50Ms": 37.1,
+     "p95Ms": 95,
+     "rowsReturned": 20,
+     "recallAt20": 0.042
+    },
+    "portal_hnsw_iterative(ef=100)": {
+     "p50Ms": 16.1,
+     "p95Ms": 49.5,
+     "rowsReturned": 20,
+     "recallAt20": 0.046
+    },
+    "global_hnsw_iterative(ef=100)": {
+     "p50Ms": 53.2,
+     "p95Ms": 334.1,
+     "rowsReturned": 17.8,
+     "recallAt20": 0.049
+    }
+   },
+   "explain": {
+    "planner_default(ef=40)": [
+     "Limit (actual time=1.014..1.172 rows=20 loops=1)",
+     "  Buffers: shared hit=1041 read=3",
+     "  ->  Nested Loop (actual time=1.013..1.168 rows=20 loops=1)",
+     "        Buffers: shared hit=1041 read=3",
+     "        ->  Index Scan using listing_emb_hnsw_cars on listing_embeddings e (actual time=0.995..1.048 rows=21 loops=1)",
+     "              Order By: (embedding <=> '<query vector>'::halfvec)",
+     "              Buffers: shared hit=957 read=3",
+     "        ->  Index Scan using listings_pkey on listings l (actual time=0.005..0.005 rows=1 loops=21)",
+     "              Index Cond: (id = e.listing_id)",
+     "              Filter: ((price_minor <= '6000000'::bigint) AND (status = 'published'::text) AND (portal = 'cars'::portal))",
+     "              Rows Removed by Filter: 0",
+     "              Buffers: shared hit=84",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.308 ms",
+     "Execution Time: 1.197 ms"
+    ],
+    "portal_hnsw_iterative(ef=100)": [
+     "Subquery Scan on s (actual time=3.206..3.384 rows=20 loops=1)",
+     "  Buffers: shared hit=1336 read=338",
+     "  ->  Limit (actual time=3.205..3.380 rows=20 loops=1)",
+     "        Buffers: shared hit=1336 read=338",
+     "        ->  Nested Loop (actual time=3.204..3.377 rows=20 loops=1)",
+     "              Buffers: shared hit=1336 read=338",
+     "              ->  Index Scan using listing_emb_hnsw_cars on listing_embeddings e (actual time=3.185..3.236 rows=22 loops=1)",
+     "                    Order By: (embedding <=> '<query vector>'::halfvec)",
+     "                    Buffers: shared hit=1249 read=337",
+     "              ->  Index Scan using listings_pkey on listings l (actual time=0.005..0.005 rows=1 loops=22)",
+     "                    Index Cond: (id = e.listing_id)",
+     "                    Filter: ((price_minor <= '6000000'::bigint) AND (status = 'published'::text) AND (portal = 'cars'::portal))",
+     "                    Rows Removed by Filter: 0",
+     "                    Buffers: shared hit=87 read=1",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.268 ms",
+     "Execution Time: 3.407 ms"
+    ]
+   }
+  },
+  "homes": {
+   "text": "homes: under €400,000",
+   "filters": {
+    "portal": "homes",
+    "priceMaxMinor": 40000000,
+    "facts": {}
+   },
+   "matchingRows": 105937,
+   "queries": 40,
+   "strategies": {
+    "prefilter_exact": {
+     "p50Ms": 1354.9,
+     "p95Ms": 1510.3,
+     "rowsReturned": 20,
+     "recallAt20": 1
+    },
+    "global_hnsw_postfilter(ef=40)": {
+     "p50Ms": 7.1,
+     "p95Ms": 11.1,
+     "rowsReturned": 4.7,
+     "recallAt20": 0.099
+    },
+    "planner_default(ef=40)": {
+     "p50Ms": 75.2,
+     "p95Ms": 106.3,
+     "rowsReturned": 8.4,
+     "recallAt20": 0.109
+    },
+    "portal_hnsw_iterative(ef=100)": {
+     "p50Ms": 35.2,
+     "p95Ms": 76.1,
+     "rowsReturned": 20,
+     "recallAt20": 0.18
+    },
+    "global_hnsw_iterative(ef=100)": {
+     "p50Ms": 11.9,
+     "p95Ms": 434.9,
+     "rowsReturned": 16.6,
+     "recallAt20": 0.172
+    }
+   },
+   "explain": {
+    "planner_default(ef=40)": [
+     "Limit (actual time=8.761..21.018 rows=12 loops=1)",
+     "  Buffers: shared hit=232 read=934",
+     "  ->  Nested Loop (actual time=8.759..21.011 rows=12 loops=1)",
+     "        Buffers: shared hit=232 read=934",
+     "        ->  Index Scan using listing_emb_hnsw_homes on listing_embeddings e (actual time=8.700..8.910 rows=40 loops=1)",
+     "              Order By: (embedding <=> '<query vector>'::halfvec)",
+     "              Buffers: shared hit=87 read=919",
+     "        ->  Index Scan using listings_pkey on listings l (actual time=0.302..0.302 rows=0 loops=40)",
+     "              Index Cond: (id = e.listing_id)",
+     "              Filter: ((price_minor <= '40000000'::bigint) AND (status = 'published'::text) AND (portal = 'homes'::portal))",
+     "              Rows Removed by Filter: 1",
+     "              Buffers: shared hit=145 read=15",
+     "Planning:",
+     "  Buffers: shared hit=17 read=1",
+     "Planning Time: 0.574 ms",
+     "Execution Time: 21.062 ms"
+    ],
+    "portal_hnsw_iterative(ef=100)": [
+     "Subquery Scan on s (actual time=4.890..12.509 rows=20 loops=1)",
+     "  Buffers: shared hit=1808 read=860",
+     "  ->  Limit (actual time=4.889..12.504 rows=20 loops=1)",
+     "        Buffers: shared hit=1808 read=860",
+     "        ->  Nested Loop (actual time=4.888..12.499 rows=20 loops=1)",
+     "              Buffers: shared hit=1808 read=860",
+     "              ->  Index Scan using listing_emb_hnsw_homes on listing_embeddings e (actual time=4.846..7.512 rows=125 loops=1)",
+     "                    Order By: (embedding <=> '<query vector>'::halfvec)",
+     "                    Buffers: shared hit=1345 read=823",
+     "              ->  Index Scan using listings_pkey on listings l (actual time=0.039..0.039 rows=0 loops=125)",
+     "                    Index Cond: (id = e.listing_id)",
+     "                    Filter: ((price_minor <= '40000000'::bigint) AND (status = 'published'::text) AND (portal = 'homes'::portal))",
+     "                    Rows Removed by Filter: 1",
+     "                    Buffers: shared hit=463 read=37",
+     "Planning:",
+     "  Buffers: shared hit=18",
+     "Planning Time: 0.357 ms",
+     "Execution Time: 12.540 ms"
+    ]
+   }
+  }
+ }
+}
