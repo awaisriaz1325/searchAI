@@ -1,0 +1,101 @@
+{
+ "scenario": "cars, price <= EUR 60,000 (380k rows), per-portal HNSW m=16 ef_construction=64, iterative relaxed_order",
+ "queries": 20,
+ "runs": [
+  {
+   "index": "m=16, ef_construction=64 (468 MB, 52 s)",
+   "rows": [
+    {
+     "efSearch": 40,
+     "p50Ms": 9.5,
+     "p95Ms": 16.6,
+     "recallAt20Tol001": 0.215,
+     "distanceRatio": 1.1557
+    },
+    {
+     "efSearch": 100,
+     "p50Ms": 7.4,
+     "p95Ms": 11.2,
+     "recallAt20Tol001": 0.237,
+     "distanceRatio": 1.1504
+    },
+    {
+     "efSearch": 200,
+     "p50Ms": 21.4,
+     "p95Ms": 46.4,
+     "recallAt20Tol001": 0.237,
+     "distanceRatio": 1.1437
+    },
+    {
+     "efSearch": 400,
+     "p50Ms": 17.1,
+     "p95Ms": 74.4,
+     "recallAt20Tol001": 0.257,
+     "distanceRatio": 1.137
+    },
+    {
+     "efSearch": 800,
+     "p50Ms": 18.4,
+     "p95Ms": 51.3,
+     "recallAt20Tol001": 0.257,
+     "distanceRatio": 1.1366
+    },
+    {
+     "efSearch": 1000,
+     "p50Ms": 16.6,
+     "p95Ms": 24.3,
+     "recallAt20Tol001": 0.257,
+     "distanceRatio": 1.1365
+    }
+   ]
+  },
+  {
+   "index": "m=32, ef_construction=200 (521 MB, 159 s)",
+   "rows": [
+    {
+     "efSearch": 40,
+     "p50Ms": 8.4,
+     "p95Ms": 16.3,
+     "recallAt20Tol001": 0.342,
+     "distanceRatio": 1.1119
+    },
+    {
+     "efSearch": 100,
+     "p50Ms": 7.2,
+     "p95Ms": 9.7,
+     "recallAt20Tol001": 0.36,
+     "distanceRatio": 1.1089
+    },
+    {
+     "efSearch": 200,
+     "p50Ms": 8.6,
+     "p95Ms": 14.9,
+     "recallAt20Tol001": 0.362,
+     "distanceRatio": 1.1077
+    },
+    {
+     "efSearch": 400,
+     "p50Ms": 10,
+     "p95Ms": 14.3,
+     "recallAt20Tol001": 0.365,
+     "distanceRatio": 1.1076
+    },
+    {
+     "efSearch": 800,
+     "p50Ms": 9.8,
+     "p95Ms": 20.6,
+     "recallAt20Tol001": 0.367,
+     "distanceRatio": 1.1075
+    },
+    {
+     "efSearch": 1000,
+     "p50Ms": 11.7,
+     "p95Ms": 21.2,
+     "recallAt20Tol001": 0.367,
+     "distanceRatio": 1.1075
+    }
+   ],
+   "note": "iterative_scan strict_order and off: identical recall at ef 100/400/1000"
+  }
+ ]
+}

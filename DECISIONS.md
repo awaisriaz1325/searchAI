@@ -62,3 +62,24 @@ reads 34,426 candidate rows from the heap, and filters price and distance there:
 
 Conclusion: at this scale, hot filters belong in typed (generated) columns, which allow composite
 B-trees and index-only scans. `bench/src/jsonb-vs-column.ts` measures that trade.
+
+## 2026-11-03: ANN recall at 2M is not measurable on derived vectors, and the README says so
+
+On the 2M set, the HNSW paths return results 11-16% farther than the exact top 20 (distance
+ratio) on the broad scenarios. To find out why (`results/bench/ef-sweep.json`, cars ≤ €60k,
+380k eligible rows):
+
+- `ef_search` 40 → 1000 with m=16: recall (within 0.01 cosine distance of the exact 20th) goes
+  0.22 → 0.26 and then stops moving.
+- Rebuilt with m=32, ef_construction=200 (159 s vs 52 s, 521 MB vs 468 MB): 0.34 → 0.37, still a plateau.
+- `iterative_scan` relaxed_order, strict_order and off: identical recall.
+
+A plateau that a bigger search budget cannot move means the true neighbours are unreachable in the
+graph, not merely unvisited. The cause is how the 2M vectors were made: about 2,000 noisy copies of
+each of the 1,000 real embeddings. HNSW's neighbour pruning on such dense near-duplicate clusters
+leaves poorly linked islands. Real listings are not 2,000 copies of each other.
+
+What stands: latency, plan choice, index build time/size, and the filter strategy comparison
+(post-filtering an HNSW top-40 returns 0 of 20 rows on the selective query, at any data shape).
+What does not: absolute ANN recall at 2M. Measuring it needs 2M distinct real embeddings:
+~6.2 h on this CPU, or about $4 at Voyage list price.
