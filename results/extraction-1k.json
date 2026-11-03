@@ -1,0 +1,548 @@
+{
+ "model": "onnx-community/Qwen2.5-0.5B-Instruct",
+ "promptHash": "d52d0ec552b9",
+ "listings": 1000,
+ "hardware": "4 vCPU / 15 GB, CPU only",
+ "llm": {
+  "scores": {
+   "cars": {
+    "n": 200,
+    "fields": {
+     "make": {
+      "precision": 0.695,
+      "recall": 0.695,
+      "f1": 0.695,
+      "tp": 139,
+      "fp": 61,
+      "fn": 61
+     },
+     "model": {
+      "precision": 0.735,
+      "recall": 0.735,
+      "f1": 0.735,
+      "tp": 147,
+      "fp": 53,
+      "fn": 53
+     },
+     "year": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "fuel": {
+      "precision": 0.894,
+      "recall": 0.72,
+      "f1": 0.798,
+      "tp": 144,
+      "fp": 17,
+      "fn": 56
+     },
+     "body": {
+      "precision": 0.384,
+      "recall": 0.38,
+      "f1": 0.382,
+      "tp": 76,
+      "fp": 122,
+      "fn": 124
+     },
+     "mileage_km": {
+      "precision": 0.843,
+      "recall": 0.805,
+      "f1": 0.824,
+      "tp": 161,
+      "fp": 30,
+      "fn": 39
+     },
+     "gearbox": {
+      "precision": 0.89,
+      "recall": 0.89,
+      "f1": 0.89,
+      "tp": 178,
+      "fp": 22,
+      "fn": 22
+     }
+    },
+    "micro": {
+     "precision": 0.774,
+     "recall": 0.746,
+     "f1": 0.76,
+     "tp": 1045,
+     "fp": 305,
+     "fn": 355
+    }
+   },
+   "homes": {
+    "n": 200,
+    "fields": {
+     "type": {
+      "precision": 0.485,
+      "recall": 0.485,
+      "f1": 0.485,
+      "tp": 97,
+      "fp": 103,
+      "fn": 103
+     },
+     "rooms": {
+      "precision": 0.95,
+      "recall": 0.95,
+      "f1": 0.95,
+      "tp": 190,
+      "fp": 10,
+      "fn": 10
+     },
+     "area_m2": {
+      "precision": 0.94,
+      "recall": 0.94,
+      "f1": 0.94,
+      "tp": 188,
+      "fp": 12,
+      "fn": 12
+     },
+     "year_built": {
+      "precision": 0.98,
+      "recall": 0.98,
+      "f1": 0.98,
+      "tp": 196,
+      "fp": 4,
+      "fn": 4
+     }
+    },
+    "micro": {
+     "precision": 0.839,
+     "recall": 0.839,
+     "f1": 0.839,
+     "tp": 671,
+     "fp": 129,
+     "fn": 129
+    }
+   },
+   "rentals": {
+    "n": 200,
+    "fields": {
+     "type": {
+      "precision": 0.568,
+      "recall": 0.565,
+      "f1": 0.566,
+      "tp": 113,
+      "fp": 86,
+      "fn": 87
+     },
+     "rooms": {
+      "precision": 0.845,
+      "recall": 0.845,
+      "f1": 0.845,
+      "tp": 169,
+      "fp": 31,
+      "fn": 31
+     },
+     "area_m2": {
+      "precision": 0.955,
+      "recall": 0.955,
+      "f1": 0.955,
+      "tp": 191,
+      "fp": 9,
+      "fn": 9
+     },
+     "furnished": {
+      "precision": 0.455,
+      "recall": 0.455,
+      "f1": 0.455,
+      "tp": 91,
+      "fp": 109,
+      "fn": 109
+     },
+     "available_from": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     }
+    },
+    "micro": {
+     "precision": 0.765,
+     "recall": 0.764,
+     "f1": 0.764,
+     "tp": 764,
+     "fp": 235,
+     "fn": 236
+    }
+   },
+   "jobs": {
+    "n": 200,
+    "fields": {
+     "role": {
+      "precision": 0.271,
+      "recall": 0.27,
+      "f1": 0.271,
+      "tp": 54,
+      "fp": 145,
+      "fn": 146
+     },
+     "seniority": {
+      "precision": 0.731,
+      "recall": 0.705,
+      "f1": 0.718,
+      "tp": 141,
+      "fp": 52,
+      "fn": 59
+     },
+     "remote": {
+      "precision": 0.745,
+      "recall": 0.555,
+      "f1": 0.636,
+      "tp": 111,
+      "fp": 38,
+      "fn": 89
+     },
+     "salary_min": {
+      "precision": 0.739,
+      "recall": 0.735,
+      "f1": 0.737,
+      "tp": 147,
+      "fp": 52,
+      "fn": 53
+     },
+     "salary_max": {
+      "precision": 0.764,
+      "recall": 0.76,
+      "f1": 0.762,
+      "tp": 152,
+      "fp": 47,
+      "fn": 48
+     },
+     "contract": {
+      "precision": 0.459,
+      "recall": 0.445,
+      "f1": 0.452,
+      "tp": 89,
+      "fp": 105,
+      "fn": 111
+     }
+    },
+    "micro": {
+     "precision": 0.613,
+     "recall": 0.578,
+     "f1": 0.595,
+     "tp": 694,
+     "fp": 439,
+     "fn": 506
+    }
+   },
+   "marketplace": {
+    "n": 200,
+    "fields": {
+     "category": {
+      "precision": 0.337,
+      "recall": 0.33,
+      "f1": 0.333,
+      "tp": 66,
+      "fp": 130,
+      "fn": 134
+     },
+     "condition": {
+      "precision": 0.635,
+      "recall": 0.565,
+      "f1": 0.598,
+      "tp": 113,
+      "fp": 65,
+      "fn": 87
+     },
+     "brand": {
+      "precision": 0.819,
+      "recall": 0.815,
+      "f1": 0.817,
+      "tp": 163,
+      "fp": 36,
+      "fn": 37
+     }
+    },
+    "micro": {
+     "precision": 0.597,
+     "recall": 0.57,
+     "f1": 0.583,
+     "tp": 342,
+     "fp": 231,
+     "fn": 258
+    }
+   }
+  },
+  "schemaValidRate": 0.998,
+  "meanMs": 3745,
+  "meanTokensIn": 154,
+  "meanTokensOut": 53
+ },
+ "regexBaseline": {
+  "scores": {
+   "cars": {
+    "n": 200,
+    "fields": {
+     "make": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "model": {
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 200
+     },
+     "year": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "fuel": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "body": {
+      "precision": 1,
+      "recall": 0.985,
+      "f1": 0.992,
+      "tp": 197,
+      "fp": 0,
+      "fn": 3
+     },
+     "mileage_km": {
+      "precision": 1,
+      "recall": 0.945,
+      "f1": 0.972,
+      "tp": 189,
+      "fp": 0,
+      "fn": 11
+     },
+     "gearbox": {
+      "precision": 1,
+      "recall": 0.98,
+      "f1": 0.99,
+      "tp": 196,
+      "fp": 0,
+      "fn": 4
+     }
+    },
+    "micro": {
+     "precision": 1,
+     "recall": 0.844,
+     "f1": 0.916,
+     "tp": 1182,
+     "fp": 0,
+     "fn": 218
+    }
+   },
+   "homes": {
+    "n": 200,
+    "fields": {
+     "type": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "rooms": {
+      "precision": 1,
+      "recall": 0.99,
+      "f1": 0.995,
+      "tp": 198,
+      "fp": 0,
+      "fn": 2
+     },
+     "area_m2": {
+      "precision": 1,
+      "recall": 0.95,
+      "f1": 0.974,
+      "tp": 190,
+      "fp": 0,
+      "fn": 10
+     },
+     "year_built": {
+      "precision": 1,
+      "recall": 0.975,
+      "f1": 0.987,
+      "tp": 195,
+      "fp": 0,
+      "fn": 5
+     }
+    },
+    "micro": {
+     "precision": 1,
+     "recall": 0.979,
+     "f1": 0.989,
+     "tp": 783,
+     "fp": 0,
+     "fn": 17
+    }
+   },
+   "rentals": {
+    "n": 200,
+    "fields": {
+     "type": {
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.889,
+      "tp": 160,
+      "fp": 0,
+      "fn": 40
+     },
+     "rooms": {
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.889,
+      "tp": 160,
+      "fp": 0,
+      "fn": 40
+     },
+     "area_m2": {
+      "precision": 1,
+      "recall": 0.95,
+      "f1": 0.974,
+      "tp": 190,
+      "fp": 0,
+      "fn": 10
+     },
+     "furnished": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "available_from": {
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 200
+     }
+    },
+    "micro": {
+     "precision": 1,
+     "recall": 0.71,
+     "f1": 0.83,
+     "tp": 710,
+     "fp": 0,
+     "fn": 290
+    }
+   },
+   "jobs": {
+    "n": 200,
+    "fields": {
+     "role": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "seniority": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "remote": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "salary_min": {
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 200
+     },
+     "salary_max": {
+      "precision": 1,
+      "recall": 0.985,
+      "f1": 0.992,
+      "tp": 197,
+      "fp": 0,
+      "fn": 3
+     },
+     "contract": {
+      "precision": 1,
+      "recall": 0.96,
+      "f1": 0.98,
+      "tp": 192,
+      "fp": 0,
+      "fn": 8
+     }
+    },
+    "micro": {
+     "precision": 1,
+     "recall": 0.824,
+     "f1": 0.904,
+     "tp": 989,
+     "fp": 0,
+     "fn": 211
+    }
+   },
+   "marketplace": {
+    "n": 200,
+    "fields": {
+     "category": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "condition": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "tp": 200,
+      "fp": 0,
+      "fn": 0
+     },
+     "brand": {
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 200
+     }
+    },
+    "micro": {
+     "precision": 1,
+     "recall": 0.667,
+     "f1": 0.8,
+     "tp": 400,
+     "fp": 0,
+     "fn": 200
+    }
+   }
+  }
+ }
+}
