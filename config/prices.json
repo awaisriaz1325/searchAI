@@ -1,0 +1,9 @@
+{
+  "priced_at": "2026-11-03",
+  "note": "List prices for the hosted equivalents of the local models, used only to estimate what each search would cost on hosted APIs. Check the sources before relying on them.",
+  "embed_usd_per_1m_tokens": { "value": 0.02, "model": "voyage-3.5-lite", "source": "https://docs.voyageai.com/docs/pricing" },
+  "rerank_usd_per_1m_tokens": { "value": 0.02, "model": "rerank-2.5-lite", "source": "https://docs.voyageai.com/docs/pricing" },
+  "llm_usd_per_1m_input": { "value": 0.05, "model": "qwen-flash (international)", "source": "https://www.developersdigest.tech/models/qwen-flash", "verified": false },
+  "llm_usd_per_1m_output": { "value": 0.4, "model": "qwen-flash (international)", "source": "https://www.developersdigest.tech/models/qwen-flash", "verified": false },
+  "db_usd_per_vcpu_hour": { "value": 0.035, "model": "assumed managed Postgres vCPU-hour", "source": "assumption, not a quote", "verified": false }
+}
