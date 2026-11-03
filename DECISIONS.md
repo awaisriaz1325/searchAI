@@ -46,3 +46,19 @@ with precision 1.0 on every portal. Two caveats cut in opposite directions:
 Decision: extraction stays **rules first, LLM for the fields rules leave empty**, the same
 shape as query parsing. Next step (not done): a thousands-separator check against the source
 text, and a larger model or a hosted one behind the same `Llm` interface, measured on this set.
+
+## 2026-11-03: The selective 2M query is heap-bound, and a covering expression index does not fix it
+
+"diesel van under €25,000 near Hamburg, under 100,000 km" matches 511 of 2M listings. The plan
+(`results/bench/strategies.json`) uses `listings_cars_hot` (fuel, body, mileage expression index),
+reads 34,426 candidate rows from the heap, and filters price and distance there: about 126 of
+130 ms. Two experiments, both reverted:
+
+- A second expression index ending in `price_minor`: the planner kept the old index (no change).
+- A covering index with `INCLUDE (id, price_minor, lat, lon)`: still an Index Scan, not an Index
+  Only Scan, at 200-230 ms, and 27 MB against 3.4 MB. Postgres does not plan index-only scans when
+  the query's conditions are expressions over a column (`facts->>'fuel'`) that is not itself in the
+  index.
+
+Conclusion: at this scale, hot filters belong in typed (generated) columns, which allow composite
+B-trees and index-only scans. `bench/src/jsonb-vs-column.ts` measures that trade.

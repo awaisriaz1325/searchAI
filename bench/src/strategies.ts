@@ -31,13 +31,13 @@ const STRATEGIES: Strategy[] = [
     name: 'prefilter_exact',
     settings: [],
     sql: (tx, f, q, _p, pre) => tx`${pre} WITH c AS MATERIALIZED (SELECT l.id FROM listings l WHERE ${filtersToSql(tx, f)})
-      SELECT e.listing_id::int AS id FROM listing_embeddings e JOIN c ON c.id = e.listing_id
-      ORDER BY e.embedding <=> ${q}::halfvec LIMIT ${K}`,
+      SELECT e.listing_id::int AS id, (e.embedding <=> ${q}::halfvec)::float8 AS d FROM listing_embeddings e JOIN c ON c.id = e.listing_id
+      ORDER BY d LIMIT ${K}`,
   },
   {
     name: 'global_hnsw_postfilter(ef=40)',
     settings: ['SET LOCAL hnsw.ef_search = 40', 'SET LOCAL hnsw.iterative_scan = off'],
-    sql: (tx, f, q, _p, pre) => tx`${pre} SELECT nn.id FROM (
+    sql: (tx, f, q, _p, pre) => tx`${pre} SELECT nn.id, nn.d::float8 AS d FROM (
         SELECT e.listing_id::int AS id, e.embedding <=> ${q}::halfvec AS d FROM listing_embeddings e
         ORDER BY e.embedding <=> ${q}::halfvec LIMIT 40) nn
       JOIN listings l ON l.id = nn.id WHERE ${filtersToSql(tx, f)} ORDER BY d LIMIT ${K}`,
@@ -45,20 +45,20 @@ const STRATEGIES: Strategy[] = [
   {
     name: 'planner_default(ef=40)',
     settings: ['SET LOCAL hnsw.ef_search = 40', 'SET LOCAL hnsw.iterative_scan = off'],
-    sql: (tx, f, q, portal, pre) => tx`${pre} SELECT e.listing_id::int AS id FROM listing_embeddings e JOIN listings l ON l.id = e.listing_id
+    sql: (tx, f, q, portal, pre) => tx`${pre} SELECT e.listing_id::int AS id, (e.embedding <=> ${q}::halfvec)::float8 AS d FROM listing_embeddings e JOIN listings l ON l.id = e.listing_id
       WHERE ${filtersToSql(tx, f)} AND e.portal = ${portal} ORDER BY e.embedding <=> ${q}::halfvec LIMIT ${K}`,
   },
   {
     name: 'portal_hnsw_iterative(ef=100)',
     settings: ['SET LOCAL hnsw.ef_search = 100', 'SET LOCAL hnsw.iterative_scan = relaxed_order', 'SET LOCAL hnsw.max_scan_tuples = 20000'],
-    sql: (tx, f, q, portal, pre) => tx`${pre} SELECT id FROM (SELECT e.listing_id::int AS id, e.embedding <=> ${q}::halfvec AS d
+    sql: (tx, f, q, portal, pre) => tx`${pre} SELECT id, d::float8 AS d FROM (SELECT e.listing_id::int AS id, e.embedding <=> ${q}::halfvec AS d
       FROM listing_embeddings e JOIN listings l ON l.id = e.listing_id
       WHERE ${filtersToSql(tx, f)} AND e.portal = ${portal} ORDER BY e.embedding <=> ${q}::halfvec LIMIT ${K}) s ORDER BY d`,
   },
   {
     name: 'global_hnsw_iterative(ef=100)',
     settings: ['SET LOCAL hnsw.ef_search = 100', 'SET LOCAL hnsw.iterative_scan = relaxed_order', 'SET LOCAL hnsw.max_scan_tuples = 20000'],
-    sql: (tx, f, q, _p, pre) => tx`${pre} SELECT id FROM (SELECT e.listing_id::int AS id, e.embedding <=> ${q}::halfvec AS d
+    sql: (tx, f, q, _p, pre) => tx`${pre} SELECT id, d::float8 AS d FROM (SELECT e.listing_id::int AS id, e.embedding <=> ${q}::halfvec AS d
       FROM listing_embeddings e JOIN listings l ON l.id = e.listing_id
       WHERE ${filtersToSql(tx, f)} ORDER BY e.embedding <=> ${q}::halfvec LIMIT ${K}) s ORDER BY d`,
   },
@@ -68,14 +68,14 @@ async function run(s: Strategy, f: HardFilters, q: string, portal: string, expla
   return sql.begin(async (tx) => {
     for (const st of s.settings) await tx.unsafe(st);
     const pre = tx.unsafe(explain ? 'EXPLAIN (ANALYZE, BUFFERS, COSTS OFF)' : '');
-    return (await s.sql(tx, f, q, portal, pre)) as unknown as { id?: number; 'QUERY PLAN'?: string }[];
-  }) as Promise<{ id?: number; 'QUERY PLAN'?: string }[]>;
+    return (await s.sql(tx, f, q, portal, pre)) as unknown as { id?: number; d?: number; 'QUERY PLAN'?: string }[];
+  }) as Promise<{ id?: number; d?: number; 'QUERY PLAN'?: string }[]>;
 }
 
 const embedder = await createE5Embedder();
 const golden = JSON.parse(readFileSync('data/golden-queries.json', 'utf8')) as GoldenQuery[];
 const report: Record<string, unknown> = {};
-const md = ['| scenario | matching rows | strategy | p50 ms | p95 ms | rows returned | recall@20 |', '|---|---|---|---|---|---|---|'];
+const md = ['| scenario | matching rows | strategy | p50 ms | p95 ms | rows returned | recall@20 (set) | recall@20 (±0.01) | distance ratio |', '|---|---|---|---|---|---|---|---|---|'];
 
 for (const sc of SCENARIOS) {
   const portal = sc.filters.portal!;
@@ -84,26 +84,45 @@ for (const sc of SCENARIOS) {
   const [m] = await sql`SELECT count(*)::int AS n FROM listings l WHERE ${filtersToSql(sql, sc.filters)}`;
   const matching = m!.n as number;
   const truth: Set<number>[] = [];
+  const truthD: number[][] = [];
+  const TOL = 0.01; // cosine distance
   const cells: Record<string, unknown> = {};
   for (const s of STRATEGIES) {
     await run(s, sc.filters, vectors[0]!, portal); // warm
     const ms: number[] = [];
     const returned: number[] = [];
     const recall: number[] = [];
+    const tolRecall: number[] = [];
+    const ratio: number[] = [];
+    const spread: number[] = [];
     for (const [i, q] of vectors.entries()) {
       const t = performance.now();
-      const ids = (await run(s, sc.filters, q, portal)).map((r) => r.id!);
+      const rowsOut = await run(s, sc.filters, q, portal);
       ms.push(performance.now() - t);
+      const ids = rowsOut.map((r) => r.id!);
+      const ds = rowsOut.map((r) => r.d!);
       returned.push(ids.length);
-      if (s.name === 'prefilter_exact') truth[i] = new Set(ids);
+      if (s.name === 'prefilter_exact') {
+        truth[i] = new Set(ids);
+        truthD[i] = ds;
+      }
       const want = truth[i]!;
+      const exact = truthD[i]!;
       recall.push(want.size ? ids.filter((id) => want.has(id)).length / want.size : 1);
+      if (exact.length) {
+        const kth = exact.at(-1)!;
+        // Set overlap punishes ties; this counts any result as good as the exact k-th, within TOL.
+        tolRecall.push(Math.min(exact.length, ds.filter((d) => d <= kth + TOL).length) / exact.length);
+        const m = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / Math.max(1, xs.length);
+        if (ds.length) ratio.push(m(ds) / m(exact));
+        spread.push(kth - exact[0]!);
+      }
     }
     const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
-    const cell = { p50Ms: +percentile(ms, 50).toFixed(1), p95Ms: +percentile(ms, 95).toFixed(1), rowsReturned: +mean(returned).toFixed(1), recallAt20: +mean(recall).toFixed(3) };
+    const cell = { p50Ms: +percentile(ms, 50).toFixed(1), p95Ms: +percentile(ms, 95).toFixed(1), rowsReturned: +mean(returned).toFixed(1), recallAt20: +mean(recall).toFixed(3), recallAt20Tol001: tolRecall.length ? +mean(tolRecall).toFixed(3) : null, distanceRatio: ratio.length ? +mean(ratio).toFixed(4) : null, exactTop20Spread: spread.length ? +mean(spread).toFixed(4) : null };
     cells[s.name] = cell;
-    md.push(`| ${sc.name} | ${matching.toLocaleString('en')} | ${s.name} | ${cell.p50Ms} | ${cell.p95Ms} | ${cell.rowsReturned} | ${cell.recallAt20} |`);
-    console.log(`${sc.name.padEnd(10)} ${s.name.padEnd(32)} p50 ${cell.p50Ms} ms  p95 ${cell.p95Ms} ms  rows ${cell.rowsReturned}  recall@20 ${cell.recallAt20}`);
+    md.push(`| ${sc.name} | ${matching.toLocaleString('en')} | ${s.name} | ${cell.p50Ms} | ${cell.p95Ms} | ${cell.rowsReturned} | ${cell.recallAt20} | ${cell.recallAt20Tol001 ?? '-'} | ${cell.distanceRatio ?? '-'} |`);
+    console.log(`${sc.name.padEnd(10)} ${s.name.padEnd(32)} p50 ${cell.p50Ms} ms  p95 ${cell.p95Ms} ms  rows ${cell.rowsReturned}  recall@20 ${cell.recallAt20} tol ${cell.recallAt20Tol001} ratio ${cell.distanceRatio} spread ${cell.exactTop20Spread}`);
   }
   const plans: Record<string, string[]> = {};
   for (const s of STRATEGIES.filter((x) => x.name.startsWith('planner') || x.name.startsWith('portal_hnsw')))
