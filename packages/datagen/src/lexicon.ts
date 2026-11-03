@@ -16,7 +16,7 @@ export const FACT_WORDS: Record<string, Words> = {
   'body:suv': { en: ['suv', '4x4'], de: ['suv', 'geländewagen'], fr: ['suv', '4x4'], es: ['suv', 'todoterreno'], pl: ['suv', 'terenowy'] },
   'body:sedan': { en: ['sedan', 'saloon'], de: ['limousine'], fr: ['berline'], es: ['sedán', 'berlina'], pl: ['sedan'] },
   'body:hatchback': { en: ['hatchback'], de: ['kompaktwagen', 'kleinwagen'], fr: ['citadine', 'compacte'], es: ['compacto', 'utilitario'], pl: ['hatchback', 'kompakt'] },
-  'body:estate': { en: ['estate', 'station wagon'], de: ['kombi'], fr: ['break'], es: ['familiar', 'ranchera'], pl: ['kombi'] },
+  'body:estate': { en: ['estate', 'station wagon'], de: ['kombi'], fr: ['break'], es: ['ranchera'], pl: ['kombi'] },
   'body:pickup': { en: ['pickup', 'pick-up'], de: ['pickup', 'pritsche'], fr: ['pick-up'], es: ['pickup', 'pick-up'], pl: ['pickup'] },
   'body:coupe': { en: ['coupe'], de: ['coupé', 'coupe'], fr: ['coupé'], es: ['coupé', 'cupé'], pl: ['coupe'] },
   'body:convertible': { en: ['convertible', 'cabriolet'], de: ['cabrio', 'cabriolet'], fr: ['cabriolet'], es: ['descapotable', 'cabrio'], pl: ['kabriolet'] },
@@ -46,7 +46,7 @@ export const FACT_WORDS: Record<string, Words> = {
   'condition:new': { en: ['new', 'brand new'], de: ['neu', 'neuwertig'], fr: ['neuf'], es: ['nuevo'], pl: ['nowy'] },
   'condition:like_new': { en: ['like new'], de: ['wie neu'], fr: ['comme neuf'], es: ['como nuevo'], pl: ['jak nowy'] },
   'condition:good': { en: ['good condition'], de: ['guter zustand'], fr: ['bon état'], es: ['buen estado'], pl: ['dobry stan'] },
-  'condition:fair': { en: ['used'], de: ['gebraucht'], fr: ['usagé'], es: ['usado'], pl: ['używany'] },
+  'condition:fair': { en: ['fair condition'], de: ['gebraucht'], fr: ['usagé'], es: ['usado'], pl: ['używany'] },
 };
 
 /** Nouns that name a portal; used to detect it in queries. */
