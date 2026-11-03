@@ -40,6 +40,7 @@ export const listingEmbeddings = pgTable('listing_embeddings', {
   listingId: bigint('listing_id', { mode: 'number' })
     .primaryKey()
     .references(() => listings.id, { onDelete: 'cascade' }),
+  portal: portalEnum('portal').notNull(),
   model: text('model').notNull(),
   modelVersion: text('model_version').notNull(),
   embedding: halfvec('embedding', { dimensions: 384 }).notNull(),

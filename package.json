@@ -2,15 +2,22 @@
   "name": "searchai",
   "private": true,
   "type": "module",
-  "workspaces": ["packages/*", "apps/*", "bench"],
-  "engines": { "node": ">=22" },
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "bench"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint .",
     "test": "vitest run --project unit",
     "test:integration": "vitest run --project integration",
     "test:model": "vitest run --project model",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "ingest": "tsx packages/db/src/cli-ingest.ts"
   },
   "devDependencies": {
     "@types/node": "22.15.30",

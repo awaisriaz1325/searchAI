@@ -14,8 +14,8 @@ beforeAll(async () => {
     VALUES (1, 'cars', ${OWNER}, 'published', 'VW Transporter Diesel', 'Kastenwagen', 'de', 2000000, 53.55, 9.99, '{}', 'truth'),
            (2, 'cars', ${OWNER}, 'draft', 'Ford Transit Diesel', 'Draft listing', 'en', 1500000, 53.55, 9.99, '{}', 'truth')`;
   await sql`
-    INSERT INTO listing_embeddings (listing_id, model, model_version, embedding)
-    VALUES (1, 'test', 'v1', ${vec(0.1)}::halfvec), (2, 'test', 'v1', ${vec(0.1)}::halfvec)`;
+    INSERT INTO listing_embeddings (listing_id, portal, model, model_version, embedding)
+    VALUES (1, 'cars', 'test', 'v1', ${vec(0.1)}::halfvec), (2, 'cars', 'test', 'v1', ${vec(0.1)}::halfvec)`;
 });
 afterAll(async () => sql?.end());
 
