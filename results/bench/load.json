@@ -1,0 +1,62 @@
+{
+ "rows": 2000000,
+ "loadSeconds": 736,
+ "indexes": {
+  "listings_portal_status_price": {
+   "ms": 2313,
+   "bytes": 14729216
+  },
+  "listings_cars_hot": {
+   "ms": 623,
+   "bytes": 3555328
+  },
+  "listings_facts_gin": {
+   "ms": 3746,
+   "bytes": 29679616
+  },
+  "listings_fts_gin": {
+   "ms": 15964,
+   "bytes": 102793216
+  },
+  "listings_geo": {
+   "ms": 51866,
+   "bytes": 168402944
+  },
+  "listings_title_trgm": {
+   "ms": 25097,
+   "bytes": 154279936
+  },
+  "hnsw_cars": {
+   "ms": 52310,
+   "bytes": 468123648
+  },
+  "hnsw_homes": {
+   "ms": 52809,
+   "bytes": 468123648
+  },
+  "hnsw_rentals": {
+   "ms": 53494,
+   "bytes": 468123648
+  },
+  "hnsw_jobs": {
+   "ms": 54416,
+   "bytes": 468123648
+  },
+  "hnsw_marketplace": {
+   "ms": 50154,
+   "bytes": 468123648
+  },
+  "hnsw_global": {
+   "ms": 309154,
+   "bytes": 2340585472
+  }
+ },
+ "totalBytes": {
+  "listings": 1905229824,
+  "embeddings": 6560342016
+ },
+ "pgvector": "0.8.0",
+ "postgres": "PostgreSQL 17.6 (Debian 17.6-1.pgdg12+1)",
+ "hardware": "4 vCPU / 15 GB, Docker pgvector/pgvector:0.8.0-pg17, shared_buffers 2GB",
+ "vectors": "ids 1-1000 real multilingual-e5-small embeddings; others derived (perturb.ts, noise 0.35)"
+}
