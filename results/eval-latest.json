@@ -1,5 +1,5 @@
 {
- "date": "2026-11-20",
+ "date": "2026-11-21",
  "listings": 1000,
  "queries": 200,
  "models": {
@@ -21,9 +21,9 @@
     "violations": 0,
     "violationsTruth": 0,
     "parseExact": 0.995,
-    "p50Ms": 22,
-    "p95Ms": 54,
-    "usdPer1k": 0.0005
+    "p50Ms": 14,
+    "p95Ms": 55,
+    "usdPer1k": 0.00046
    },
    "perPortal": {
     "cars": {
@@ -36,9 +36,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 27,
-     "p95Ms": 71,
-     "usdPer1k": 0.00057
+     "p50Ms": 16,
+     "p95Ms": 40,
+     "usdPer1k": 0.00043
     },
     "homes": {
      "n": 40,
@@ -50,9 +50,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 16,
-     "p95Ms": 47,
-     "usdPer1k": 0.0005
+     "p50Ms": 13,
+     "p95Ms": 65,
+     "usdPer1k": 0.00049
     },
     "rentals": {
      "n": 40,
@@ -64,9 +64,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 19,
-     "p95Ms": 53,
-     "usdPer1k": 0.0005
+     "p50Ms": 18,
+     "p95Ms": 56,
+     "usdPer1k": 0.00051
     },
     "jobs": {
      "n": 40,
@@ -78,9 +78,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 18,
-     "p95Ms": 54,
-     "usdPer1k": 0.0005
+     "p50Ms": 13,
+     "p95Ms": 43,
+     "usdPer1k": 0.00046
     },
     "marketplace": {
      "n": 40,
@@ -92,9 +92,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 0.975,
-     "p50Ms": 23,
-     "p95Ms": 46,
-     "usdPer1k": 0.00042
+     "p50Ms": 11,
+     "p95Ms": 49,
+     "usdPer1k": 0.00039
     }
    },
    "perCategory": {
@@ -108,9 +108,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 30,
-     "p95Ms": 60,
-     "usdPer1k": 0.0006
+     "p50Ms": 20,
+     "p95Ms": 55,
+     "usdPer1k": 0.00053
     },
     "filter_semantic": {
      "n": 40,
@@ -122,8 +122,8 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 16,
-     "p95Ms": 49,
+     "p50Ms": 18,
+     "p95Ms": 48,
      "usdPer1k": 0.00046
     },
     "paraphrase": {
@@ -136,9 +136,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 27,
+     "p50Ms": 13,
      "p95Ms": 73,
-     "usdPer1k": 0.00058
+     "usdPer1k": 0.00048
     },
     "cross_language": {
      "n": 30,
@@ -150,9 +150,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 25,
-     "p95Ms": 70,
-     "usdPer1k": 0.00058
+     "p50Ms": 20,
+     "p95Ms": 87,
+     "usdPer1k": 0.00051
     },
     "typo": {
      "n": 30,
@@ -164,9 +164,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 0.967,
-     "p50Ms": 15,
-     "p95Ms": 53,
-     "usdPer1k": 0.00045
+     "p50Ms": 13,
+     "p95Ms": 54,
+     "usdPer1k": 0.00046
     },
     "impossible": {
      "n": 30,
@@ -178,8 +178,8 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 9,
-     "p95Ms": 13,
+     "p50Ms": 6,
+     "p95Ms": 26,
      "usdPer1k": 0.00028
     }
    },
@@ -194,9 +194,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 26,
-     "p95Ms": 69,
-     "usdPer1k": 0.00051
+     "p50Ms": 16,
+     "p95Ms": 100,
+     "usdPer1k": 0.00049
     },
     "en": {
      "n": 39,
@@ -208,9 +208,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 22,
-     "p95Ms": 53,
-     "usdPer1k": 0.00048
+     "p50Ms": 14,
+     "p95Ms": 65,
+     "usdPer1k": 0.00043
     },
     "fr": {
      "n": 36,
@@ -222,9 +222,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 20,
-     "p95Ms": 70,
-     "usdPer1k": 0.00051
+     "p50Ms": 15,
+     "p95Ms": 56,
+     "usdPer1k": 0.0005
     },
     "es": {
      "n": 42,
@@ -236,9 +236,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 0.976,
-     "p50Ms": 24,
-     "p95Ms": 48,
-     "usdPer1k": 0.00051
+     "p50Ms": 13,
+     "p95Ms": 46,
+     "usdPer1k": 0.00043
     },
     "pl": {
      "n": 44,
@@ -250,9 +250,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 16,
-     "p95Ms": 54,
-     "usdPer1k": 0.00047
+     "p50Ms": 15,
+     "p95Ms": 49,
+     "usdPer1k": 0.00044
     }
    }
   },
@@ -267,9 +267,9 @@
     "violations": 0,
     "violationsTruth": 0,
     "parseExact": 0.995,
-    "p50Ms": 251,
-    "p95Ms": 1132,
-    "usdPer1k": 0.01184
+    "p50Ms": 154,
+    "p95Ms": 757,
+    "usdPer1k": 0.01179
    },
    "perPortal": {
     "cars": {
@@ -282,9 +282,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 175,
-     "p95Ms": 1156,
-     "usdPer1k": 0.01171
+     "p50Ms": 103,
+     "p95Ms": 816,
+     "usdPer1k": 0.01162
     },
     "homes": {
      "n": 40,
@@ -296,9 +296,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 202,
-     "p95Ms": 1110,
-     "usdPer1k": 0.01207
+     "p50Ms": 108,
+     "p95Ms": 683,
+     "usdPer1k": 0.01201
     },
     "rentals": {
      "n": 40,
@@ -310,9 +310,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 312,
-     "p95Ms": 1095,
-     "usdPer1k": 0.01421
+     "p50Ms": 184,
+     "p95Ms": 733,
+     "usdPer1k": 0.01416
     },
     "jobs": {
      "n": 40,
@@ -324,9 +324,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 350,
-     "p95Ms": 1134,
-     "usdPer1k": 0.01393
+     "p50Ms": 221,
+     "p95Ms": 766,
+     "usdPer1k": 0.01391
     },
     "marketplace": {
      "n": 40,
@@ -338,9 +338,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 0.975,
-     "p50Ms": 137,
-     "p95Ms": 720,
-     "usdPer1k": 0.00729
+     "p50Ms": 90,
+     "p95Ms": 498,
+     "usdPer1k": 0.00726
     }
    },
    "perCategory": {
@@ -354,9 +354,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 38,
-     "p95Ms": 1003,
-     "usdPer1k": 0.00489
+     "p50Ms": 18,
+     "p95Ms": 645,
+     "usdPer1k": 0.0048
     },
     "filter_semantic": {
      "n": 40,
@@ -368,9 +368,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 418,
-     "p95Ms": 1156,
-     "usdPer1k": 0.01536
+     "p50Ms": 271,
+     "p95Ms": 775,
+     "usdPer1k": 0.01532
     },
     "paraphrase": {
      "n": 30,
@@ -382,9 +382,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 596,
-     "p95Ms": 1124,
-     "usdPer1k": 0.01699
+     "p50Ms": 382,
+     "p95Ms": 778,
+     "usdPer1k": 0.01694
     },
     "cross_language": {
      "n": 30,
@@ -396,9 +396,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 555,
-     "p95Ms": 1145,
-     "usdPer1k": 0.01641
+     "p50Ms": 360,
+     "p95Ms": 811,
+     "usdPer1k": 0.01635
     },
     "typo": {
      "n": 30,
@@ -410,9 +410,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 0.967,
-     "p50Ms": 674,
-     "p95Ms": 1179,
-     "usdPer1k": 0.01828
+     "p50Ms": 463,
+     "p95Ms": 783,
+     "usdPer1k": 0.01824
     },
     "impossible": {
      "n": 30,
@@ -424,9 +424,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 8,
-     "p95Ms": 10,
-     "usdPer1k": 0.00026
+     "p50Ms": 6,
+     "p95Ms": 12,
+     "usdPer1k": 0.00025
     }
    },
    "perLang": {
@@ -440,9 +440,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 137,
-     "p95Ms": 1179,
-     "usdPer1k": 0.00895
+     "p50Ms": 97,
+     "p95Ms": 778,
+     "usdPer1k": 0.0089
     },
     "en": {
      "n": 39,
@@ -454,9 +454,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 302,
-     "p95Ms": 1062,
-     "usdPer1k": 0.01276
+     "p50Ms": 184,
+     "p95Ms": 748,
+     "usdPer1k": 0.01272
     },
     "fr": {
      "n": 36,
@@ -468,9 +468,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 173,
-     "p95Ms": 1146,
-     "usdPer1k": 0.01111
+     "p50Ms": 121,
+     "p95Ms": 811,
+     "usdPer1k": 0.01106
     },
     "es": {
      "n": 42,
@@ -482,9 +482,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 0.976,
-     "p50Ms": 435,
-     "p95Ms": 1145,
-     "usdPer1k": 0.01333
+     "p50Ms": 262,
+     "p95Ms": 783,
+     "usdPer1k": 0.01329
     },
     "pl": {
      "n": 44,
@@ -496,9 +496,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 282,
-     "p95Ms": 1134,
-     "usdPer1k": 0.01277
+     "p50Ms": 173,
+     "p95Ms": 766,
+     "usdPer1k": 0.0127
     }
    }
   },
@@ -514,7 +514,7 @@
     "violationsTruth": 270,
     "parseExact": 0.995,
     "p50Ms": 10,
-    "p95Ms": 14,
+    "p95Ms": 15,
     "usdPer1k": 0.00032
    },
    "perPortal": {
@@ -529,8 +529,8 @@
      "violationsTruth": 36,
      "parseExact": 1,
      "p50Ms": 11,
-     "p95Ms": 14,
-     "usdPer1k": 0.00031
+     "p95Ms": 15,
+     "usdPer1k": 0.00032
     },
     "homes": {
      "n": 40,
@@ -542,9 +542,9 @@
      "violations": 0,
      "violationsTruth": 95,
      "parseExact": 1,
-     "p50Ms": 11,
-     "p95Ms": 17,
-     "usdPer1k": 0.00035
+     "p50Ms": 10,
+     "p95Ms": 13,
+     "usdPer1k": 0.00033
     },
     "rentals": {
      "n": 40,
@@ -556,9 +556,9 @@
      "violations": 0,
      "violationsTruth": 30,
      "parseExact": 1,
-     "p50Ms": 10,
+     "p50Ms": 9,
      "p95Ms": 13,
-     "usdPer1k": 0.00034
+     "usdPer1k": 0.00033
     },
     "jobs": {
      "n": 40,
@@ -570,8 +570,8 @@
      "violations": 0,
      "violationsTruth": 37,
      "parseExact": 1,
-     "p50Ms": 10,
-     "p95Ms": 15,
+     "p50Ms": 9,
+     "p95Ms": 14,
      "usdPer1k": 0.00033
     },
     "marketplace": {
@@ -585,8 +585,8 @@
      "violationsTruth": 72,
      "parseExact": 0.975,
      "p50Ms": 9,
-     "p95Ms": 12,
-     "usdPer1k": 0.00026
+     "p95Ms": 18,
+     "usdPer1k": 0.00027
     }
    },
    "perCategory": {
@@ -600,9 +600,9 @@
      "violations": 0,
      "violationsTruth": 32,
      "parseExact": 1,
-     "p50Ms": 10,
-     "p95Ms": 14,
-     "usdPer1k": 0.00033
+     "p50Ms": 9,
+     "p95Ms": 13,
+     "usdPer1k": 0.00032
     },
     "filter_semantic": {
      "n": 40,
@@ -614,9 +614,9 @@
      "violations": 0,
      "violationsTruth": 55,
      "parseExact": 1,
-     "p50Ms": 11,
-     "p95Ms": 14,
-     "usdPer1k": 0.00032
+     "p50Ms": 10,
+     "p95Ms": 13,
+     "usdPer1k": 0.00031
     },
     "paraphrase": {
      "n": 30,
@@ -628,9 +628,9 @@
      "violations": 0,
      "violationsTruth": 50,
      "parseExact": 1,
-     "p50Ms": 11,
-     "p95Ms": 17,
-     "usdPer1k": 0.00035
+     "p50Ms": 10,
+     "p95Ms": 14,
+     "usdPer1k": 0.00034
     },
     "cross_language": {
      "n": 30,
@@ -642,9 +642,9 @@
      "violations": 0,
      "violationsTruth": 76,
      "parseExact": 1,
-     "p50Ms": 11,
-     "p95Ms": 15,
-     "usdPer1k": 0.00033
+     "p50Ms": 10,
+     "p95Ms": 14,
+     "usdPer1k": 0.00032
     },
     "typo": {
      "n": 30,
@@ -657,8 +657,8 @@
      "violationsTruth": 57,
      "parseExact": 0.967,
      "p50Ms": 10,
-     "p95Ms": 15,
-     "usdPer1k": 0.00033
+     "p95Ms": 18,
+     "usdPer1k": 0.00035
     },
     "impossible": {
      "n": 30,
@@ -670,9 +670,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 6,
-     "p95Ms": 8,
-     "usdPer1k": 0.00025
+     "p50Ms": 7,
+     "p95Ms": 18,
+     "usdPer1k": 0.00026
     }
    },
    "perLang": {
@@ -686,8 +686,8 @@
      "violations": 0,
      "violationsTruth": 26,
      "parseExact": 1,
-     "p50Ms": 11,
-     "p95Ms": 14,
+     "p50Ms": 10,
+     "p95Ms": 13,
      "usdPer1k": 0.0003
     },
     "en": {
@@ -700,8 +700,8 @@
      "violations": 0,
      "violationsTruth": 42,
      "parseExact": 1,
-     "p50Ms": 10,
-     "p95Ms": 17,
+     "p50Ms": 9,
+     "p95Ms": 14,
      "usdPer1k": 0.0003
     },
     "fr": {
@@ -714,8 +714,8 @@
      "violations": 0,
      "violationsTruth": 39,
      "parseExact": 1,
-     "p50Ms": 10,
-     "p95Ms": 17,
+     "p50Ms": 9,
+     "p95Ms": 16,
      "usdPer1k": 0.00034
     },
     "es": {
@@ -728,9 +728,9 @@
      "violations": 0,
      "violationsTruth": 90,
      "parseExact": 0.976,
-     "p50Ms": 10,
-     "p95Ms": 14,
-     "usdPer1k": 0.00033
+     "p50Ms": 9,
+     "p95Ms": 15,
+     "usdPer1k": 0.00034
     },
     "pl": {
      "n": 44,
@@ -742,9 +742,9 @@
      "violations": 0,
      "violationsTruth": 73,
      "parseExact": 1,
-     "p50Ms": 11,
+     "p50Ms": 10,
      "p95Ms": 14,
-     "usdPer1k": 0.00032
+     "usdPer1k": 0.00031
     }
    }
   },
@@ -759,9 +759,9 @@
     "violations": 0,
     "violationsTruth": 296,
     "parseExact": 0.995,
-    "p50Ms": 164,
-    "p95Ms": 1120,
-    "usdPer1k": 0.01078
+    "p50Ms": 113,
+    "p95Ms": 776,
+    "usdPer1k": 0.01075
    },
    "perPortal": {
     "cars": {
@@ -774,9 +774,9 @@
      "violations": 0,
      "violationsTruth": 38,
      "parseExact": 1,
-     "p50Ms": 136,
-     "p95Ms": 1132,
-     "usdPer1k": 0.01088
+     "p50Ms": 93,
+     "p95Ms": 783,
+     "usdPer1k": 0.01086
     },
     "homes": {
      "n": 40,
@@ -788,9 +788,9 @@
      "violations": 0,
      "violationsTruth": 114,
      "parseExact": 1,
-     "p50Ms": 221,
-     "p95Ms": 956,
-     "usdPer1k": 0.01115
+     "p50Ms": 144,
+     "p95Ms": 664,
+     "usdPer1k": 0.01111
     },
     "rentals": {
      "n": 40,
@@ -802,9 +802,9 @@
      "violations": 0,
      "violationsTruth": 32,
      "parseExact": 1,
-     "p50Ms": 302,
-     "p95Ms": 1072,
-     "usdPer1k": 0.01386
+     "p50Ms": 195,
+     "p95Ms": 739,
+     "usdPer1k": 0.01382
     },
     "jobs": {
      "n": 40,
@@ -816,9 +816,9 @@
      "violations": 0,
      "violationsTruth": 40,
      "parseExact": 1,
-     "p50Ms": 203,
-     "p95Ms": 1218,
-     "usdPer1k": 0.0118
+     "p50Ms": 133,
+     "p95Ms": 834,
+     "usdPer1k": 0.01177
     },
     "marketplace": {
      "n": 40,
@@ -830,9 +830,9 @@
      "violations": 0,
      "violationsTruth": 72,
      "parseExact": 0.975,
-     "p50Ms": 101,
-     "p95Ms": 726,
-     "usdPer1k": 0.00621
+     "p50Ms": 65,
+     "p95Ms": 480,
+     "usdPer1k": 0.00618
     }
    },
    "perCategory": {
@@ -846,9 +846,9 @@
      "violations": 0,
      "violationsTruth": 34,
      "parseExact": 1,
-     "p50Ms": 12,
-     "p95Ms": 949,
-     "usdPer1k": 0.00413
+     "p50Ms": 11,
+     "p95Ms": 668,
+     "usdPer1k": 0.00411
     },
     "filter_semantic": {
      "n": 40,
@@ -860,9 +860,9 @@
      "violations": 0,
      "violationsTruth": 62,
      "parseExact": 1,
-     "p50Ms": 463,
-     "p95Ms": 1132,
-     "usdPer1k": 0.01503
+     "p50Ms": 314,
+     "p95Ms": 805,
+     "usdPer1k": 0.015
     },
     "paraphrase": {
      "n": 30,
@@ -874,9 +874,9 @@
      "violations": 0,
      "violationsTruth": 56,
      "parseExact": 1,
-     "p50Ms": 350,
-     "p95Ms": 1132,
-     "usdPer1k": 0.01483
+     "p50Ms": 238,
+     "p95Ms": 808,
+     "usdPer1k": 0.01479
     },
     "cross_language": {
      "n": 30,
@@ -888,9 +888,9 @@
      "violations": 0,
      "violationsTruth": 84,
      "parseExact": 1,
-     "p50Ms": 474,
-     "p95Ms": 1146,
-     "usdPer1k": 0.0151
+     "p50Ms": 309,
+     "p95Ms": 776,
+     "usdPer1k": 0.01507
     },
     "typo": {
      "n": 30,
@@ -902,9 +902,9 @@
      "violations": 0,
      "violationsTruth": 60,
      "parseExact": 0.967,
-     "p50Ms": 576,
-     "p95Ms": 1122,
-     "usdPer1k": 0.01611
+     "p50Ms": 388,
+     "p95Ms": 757,
+     "usdPer1k": 0.01608
     },
     "impossible": {
      "n": 30,
@@ -916,9 +916,9 @@
      "violations": 0,
      "violationsTruth": 0,
      "parseExact": 1,
-     "p50Ms": 9,
-     "p95Ms": 13,
-     "usdPer1k": 0.00027
+     "p50Ms": 6,
+     "p95Ms": 8,
+     "usdPer1k": 0.00024
     }
    },
    "perLang": {
@@ -932,9 +932,9 @@
      "violations": 0,
      "violationsTruth": 27,
      "parseExact": 1,
-     "p50Ms": 132,
-     "p95Ms": 1144,
-     "usdPer1k": 0.00907
+     "p50Ms": 89,
+     "p95Ms": 862,
+     "usdPer1k": 0.00904
     },
     "en": {
      "n": 39,
@@ -946,9 +946,9 @@
      "violations": 0,
      "violationsTruth": 45,
      "parseExact": 1,
-     "p50Ms": 164,
-     "p95Ms": 1076,
-     "usdPer1k": 0.00972
+     "p50Ms": 113,
+     "p95Ms": 756,
+     "usdPer1k": 0.00968
     },
     "fr": {
      "n": 36,
@@ -960,9 +960,9 @@
      "violations": 0,
      "violationsTruth": 52,
      "parseExact": 1,
-     "p50Ms": 87,
-     "p95Ms": 1218,
-     "usdPer1k": 0.01026
+     "p50Ms": 71,
+     "p95Ms": 825,
+     "usdPer1k": 0.01023
     },
     "es": {
      "n": 42,
@@ -974,9 +974,9 @@
      "violations": 0,
      "violationsTruth": 92,
      "parseExact": 0.976,
-     "p50Ms": 376,
-     "p95Ms": 1106,
-     "usdPer1k": 0.01297
+     "p50Ms": 258,
+     "p95Ms": 779,
+     "usdPer1k": 0.01294
     },
     "pl": {
      "n": 44,
@@ -988,9 +988,9 @@
      "violations": 0,
      "violationsTruth": 80,
      "parseExact": 1,
-     "p50Ms": 271,
-     "p95Ms": 1105,
-     "usdPer1k": 0.01157
+     "p50Ms": 186,
+     "p95Ms": 769,
+     "usdPer1k": 0.01154
     }
    }
   }
